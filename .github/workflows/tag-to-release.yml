@@ -1,0 +1,25 @@
+name: generate release files
+
+# Controls when the workflow will run
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run a one-line script
+        run: bash tools/gen_release.sh
+      - run: |
+          set -x
+          assets=()
+          for asset in ./*.{pptx,pdf,png,jpg}; do
+            assets+=("-a" "$asset")
+          done
+          tag_name="${GITHUB_REF##*/}"
+          hub release create "${assets[@]}" -m "$tag_name" "$tag_name"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
