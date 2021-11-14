@@ -1,6 +1,9 @@
 # 3GPP-Overall-Architecture
 3GPP Overall Architecture and Specifications including 2G, 3G, 4G, and 5G Systems up to Release-17.
 
+# Download
+[release](./release)
+
 # Licence
 The content is licensed by Creative Commons License (CC BY-NC-SA 4.0).
 
