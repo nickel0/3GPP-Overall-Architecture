@@ -12,11 +12,13 @@ Architecture and Specifications" (up to Release-17).
 
 - `new-era-diagram-v3.svg` — 図（SVG、テキスト編集可能）
 - `new-era-diagram-v3.pdf` — 図（PDF、A0 横向き 1189×841mm）
-- `new-era-v2-notes.md` — 設計メモ（配置対応表・参照点対応表・残件）。
-  v3 は v2 と内容同一で、カテゴリゾーンの背景塗りを外し、
-  インターフェースの線とラベルを最前面にした版です
-  (v3 has the same content as v2; only the category-zone fills were removed
-  and the interface lines/labels were brought to the front layer.)
+- `new-era-v3-notes.md` — 設計メモ（配置対応表・参照点対応表・残件）
+- v3 は、カテゴリゾーンの背景塗りを外して線とラベルを最前面にしたうえで、
+  **法的傍受（LI、TS 33.127）を追加した版**です（ADMF／MDF2／MDF3、
+  LI_X1／X2／X3 等を描画）
+  (v3 removes the category-zone fills, brings the interface lines/labels
+  to the front layer, and adds Lawful Interception (LI, TS 33.127):
+  ADMF, MDF2/MDF3, LI_X1/X2/X3, etc.)
 
 ## 描き方 / Approach
 
@@ -31,6 +33,7 @@ Architecture and Specifications" (up to Release-17).
 ## 根拠仕様 / Basis specifications
 
 - TS 23.501 V19.9.0 (Release-19) — 5GS アーキテクチャ、NF 一覧（§6.2）、参照点（§4.2）
+- TS 33.127 V19.8.0 — 法的傍受（LI）アーキテクチャ（ADMF／MDF、LI_X1／X2／X3）
 - TS 23.369 V19.5.0 — Ambient IoT（AIOTF = Ambient IoT Function、
   ADM = AIoT Data Management、参照点 AIOT1〜AIOT8）
 - TS 38.300 — NG-RAN の構成

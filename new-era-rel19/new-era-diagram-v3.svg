@@ -22,6 +22,9 @@
 <rect x="1562" y="880" width="268" height="672" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
 <rect x="1562" y="869" width="44" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
 <text x="1571" y="885" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">MBS</text>
+<rect x="1840" y="990" width="224" height="234" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="1840" y="979" width="224" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1849" y="995" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">LI — LAWFUL INTERCEPTION</text>
 <rect x="1200" y="107" width="104" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
 <text x="1209" y="123" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">CORE — 5GC</text>
 <rect x="312" y="611" width="104" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
@@ -187,6 +190,12 @@
 <text x="1696" y="1255" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MBSTF</text>
 <rect x="1611" y="1369" width="170" height="62" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
 <text x="1696" y="1407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MB-UPF</text>
+<rect x="1857" y="1004" width="190" height="60" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1041" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">ADMF</text>
+<rect x="1867" y="1081" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1117" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MDF2</text>
+<rect x="1867" y="1157" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1193" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MDF3</text>
 <rect x="1105" y="1369" width="190" height="62" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
 <text x="1200" y="1407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">I-UPF</text>
 <text x="1200" y="1445" font-size="10" fill="#1b7a33" text-anchor="middle">29.564 Nupf (Rel-18)</text>
@@ -222,6 +231,12 @@
 <text x="1022" y="809" font-size="9.5" fill="#141414" text-anchor="middle">ARPF</text>
 <rect x="1058" y="794" width="60" height="22" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
 <text x="1088" y="809" font-size="9.5" fill="#141414" text-anchor="middle">SIDF</text>
+<rect x="1897" y="1046" width="110" height="16" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
+<text x="1952" y="1058" font-size="9" fill="#141414" text-anchor="middle">LICF · LIPF</text>
+<text x="746" y="1158" font-size="8.5" fill="#555555" text-anchor="start">IRI-POI</text>
+<text x="1398" y="1169" font-size="8.5" fill="#555555" text-anchor="start">IRI-POI · CC-TF</text>
+<text x="1113" y="1387" font-size="8.5" fill="#555555" text-anchor="start">CC-POI</text>
+<text x="1363" y="1387" font-size="8.5" fill="#555555" text-anchor="start">CC-POI</text>
 <line x1="523.0" y1="1312.3" x2="742.8" y2="1222.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
 <line x1="822.3" y1="1262.0" x2="833.4" y2="1222.0" stroke="#141414" stroke-width="1.1"/>
 <line x1="523.0" y1="1360.2" x2="576.0" y2="1367.7" stroke="#141414" stroke-width="2.2"/>
@@ -316,6 +331,14 @@
 <line x1="1668.1" y1="938.0" x2="1293.9" y2="536.0" stroke="#141414" stroke-width="1.1"/>
 <line x1="1696.0" y1="1078.0" x2="1696.0" y2="998.0" stroke="#141414" stroke-width="0.8"/>
 <line x1="1685.7" y1="536.0" x2="1695.3" y2="938.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1952.0" y1="1066.0" x2="1952.0" y2="1079.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1952.0" y1="1141.0" x2="1952.0" y2="1155.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1855.0" y1="1046.8" x2="954.0" y2="1165.6" stroke="#141414" stroke-width="1.1"/>
+<line x1="1855.0" y1="1063.7" x2="1562.0" y2="1153.4" stroke="#141414" stroke-width="1.1"/>
+<line x1="1562.0" y1="1167.2" x2="1865.0" y2="1122.8" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1173.1" x2="1865.0" y2="1115.5" stroke="#141414" stroke-width="1.1"/>
+<line x1="1527.4" y1="1367.0" x2="1879.3" y2="1217.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1471.5" y1="1211.0" x2="1453.8" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
 <line x1="477.9" y1="1309.0" x2="1628.9" y2="237.0" stroke="#141414" stroke-width="0.8"/>
 <line x1="1660.0" y1="237.0" x2="1660.0" y2="293.0" stroke="#141414" stroke-width="0.8"/>
 <line x1="1744.5" y1="322.0" x2="1850.5" y2="322.0" stroke="#141414" stroke-width="0.8"/>
@@ -352,6 +375,9 @@
 <line x1="1042.6" y1="1211.0" x2="1023.4" y2="1259.0" stroke="#1b7a33" stroke-width="1.1" stroke-dasharray="6,4"/>
 <line x1="1067.4" y1="1211.0" x2="1086.6" y2="1259.0" stroke="#1b7a33" stroke-width="1.1" stroke-dasharray="6,4"/>
 <line x1="845.0" y1="894.0" x2="845.0" y2="846.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2049.0" y1="1034.0" x2="2067.0" y2="1034.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2039.0" y1="1110.0" x2="2057.0" y2="1110.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2039.0" y1="1186.0" x2="2057.0" y2="1186.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
 <rect x="604" y="1265" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
 <text x="615" y="1278" font-size="11" fill="#141414" text-anchor="middle">N1</text>
 <text x="615" y="1296" font-size="9" fill="#555555" text-anchor="middle">24.501 NAS</text>
@@ -545,6 +571,22 @@
 <text x="1696" y="1042" font-size="11" fill="#141414" text-anchor="middle">Nmb5</text>
 <rect x="1675" y="688" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
 <text x="1690" y="701" font-size="11" fill="#141414" text-anchor="middle">MB2</text>
+<rect x="1930" y="1064" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1952" y="1076" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1927" y="1139" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1952" y="1152" font-size="11" fill="#141414" text-anchor="middle">LI_MDF</text>
+<rect x="1383" y="1097" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1404" y="1110" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1781" y="1071" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1802" y="1084" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1692" y="1142" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1714" y="1155" font-size="11" fill="#141414" text-anchor="middle">LI_X2</text>
+<rect x="1497" y="1128" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1519" y="1141" font-size="11" fill="#141414" text-anchor="middle">LI_X2</text>
+<rect x="1682" y="1283" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1703" y="1296" font-size="11" fill="#141414" text-anchor="middle">LI_X3</text>
+<rect x="1438" y="1324" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1459" y="1337" font-size="11" fill="#141414" text-anchor="middle">LI_T3</text>
 <rect x="1100" y="710" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
 <text x="1111" y="723" font-size="11" fill="#141414" text-anchor="middle">Gm</text>
 <rect x="1649" y="256" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
@@ -617,6 +659,12 @@
 <text x="1077" y="1239" font-size="11" fill="#1b7a33" text-anchor="middle">N99</text>
 <rect x="827" y="861" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
 <text x="845" y="874" font-size="11" fill="#141414" text-anchor="middle">SWa'</text>
+<rect x="2033" y="1025" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2058" y="1038" font-size="11" fill="#141414" text-anchor="middle">LI_HI1</text>
+<rect x="2023" y="1101" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2048" y="1114" font-size="11" fill="#141414" text-anchor="middle">LI_HI2</text>
+<rect x="2023" y="1177" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2048" y="1190" font-size="11" fill="#141414" text-anchor="middle">LI_HI3</text>
 <text x="785" y="1054" font-size="9.5" fill="#555555" text-anchor="end">to AMF in other PLMN</text>
 <text x="1475" y="1077" font-size="9.5" fill="#555555" text-anchor="middle">to SMF in V/H PLMN (roaming)</text>
 <text x="1273" y="1012" font-size="9.5" fill="#555555" text-anchor="start">from any NF</text>
@@ -636,7 +684,7 @@
 <text x="1815" y="388" font-size="10" fill="#555555" text-anchor="middle">P-CSCF = AF (N5) · SBA in IMS: N5 / N70 / N71 (23.228)</text>
 <text x="12" y="42" font-size="33" fill="#141414" text-anchor="start" font-weight="bold">3GPP 5G Standalone Architecture — New ERA Edition</text>
 <text x="12" y="70" font-size="15.5" fill="#141414" text-anchor="start">3GPP Overall Architecture and Specifications · Release-19 · 5G System (Standalone) only</text>
-<text x="12" y="92" font-size="11.5" fill="#5a5a5a" text-anchor="start">Point-to-point reference point representation per TS 23.501 V19.9.0 — no SBA bus simplification · Layout follows M. Ogawa's Rel-17 diagram · Draft v3 — category zones as outlines only, interface lines on the front layer</text>
+<text x="12" y="92" font-size="11.5" fill="#5a5a5a" text-anchor="start">Point-to-point reference point representation per TS 23.501 V19.9.0 — no SBA bus simplification · Layout follows M. Ogawa's Rel-17 diagram · Draft v3 — category zones as outlines only, interface lines on the front layer, LI added per TS 33.127</text>
 <text x="12" y="128" font-size="12.5" fill="#141414" text-anchor="start" font-weight="bold">5GS Specifications</text>
 <text x="12" y="143" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Stage 1</text>
 <text x="12" y="158" font-size="11" fill="#141414" text-anchor="start">22.261  Service requirement</text>
@@ -722,9 +770,12 @@
 <text x="38" y="1234" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">MBS</text>
 <text x="38" y="1247" font-size="9.5" fill="#555555" text-anchor="start">multicast / broadcast (in CORE)</text>
 <rect x="12" y="1253" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
-<text x="38" y="1263" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">DN / EXTERNAL</text>
-<text x="38" y="1276" font-size="9.5" fill="#555555" text-anchor="start">data network &amp; external systems</text>
-<text x="12" y="1302" font-size="9.5" fill="#555555" text-anchor="start">Category zones after Ogawa's domain labels.</text>
+<text x="38" y="1263" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">LI — LAWFUL INTERCEPTION</text>
+<text x="38" y="1276" font-size="9.5" fill="#555555" text-anchor="start">ADMF · MDF2 · MDF3 (33.127)</text>
+<rect x="12" y="1282" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1292" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">DN / EXTERNAL</text>
+<text x="38" y="1305" font-size="9.5" fill="#555555" text-anchor="start">data network &amp; external systems</text>
+<text x="12" y="1331" font-size="9.5" fill="#555555" text-anchor="start">Category zones after Ogawa's domain labels.</text>
 <text x="2084" y="140" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">5G Identifiers</text>
 <text x="2084" y="162" font-size="10.5" fill="#141414" text-anchor="start">SUPI · SUCI · GPSI · PEI (IMEI)</text>
 <text x="2084" y="180" font-size="10.5" fill="#141414" text-anchor="start">5G-GUTI · AMF Region / Set / Pointer</text>
@@ -812,48 +863,60 @@
 <text x="2144" y="784" font-size="9.5" fill="#141414" text-anchor="start">Ambient IoT Function</text>
 <text x="2084" y="797" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">ADM</text>
 <text x="2144" y="797" font-size="9.5" fill="#141414" text-anchor="start">AIoT Data Management</text>
-<text x="2084" y="811" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">N3IWF</text>
-<text x="2144" y="811" font-size="9.5" fill="#141414" text-anchor="start">Non-3GPP InterWorking Function</text>
-<text x="2084" y="824" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TNGF</text>
-<text x="2144" y="824" font-size="9.5" fill="#141414" text-anchor="start">Trusted Non-3GPP Gateway Function</text>
-<text x="2084" y="838" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TWIF</text>
-<text x="2144" y="838" font-size="9.5" fill="#141414" text-anchor="start">Trusted WLAN Interworking Function</text>
-<text x="2084" y="851" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">W-AGF</text>
-<text x="2144" y="851" font-size="9.5" fill="#141414" text-anchor="start">Wireline Access Gateway Function</text>
-<text x="2084" y="881" font-size="13" fill="#1b7a33" text-anchor="start" font-weight="bold">Release-18 Enhancements</text>
-<text x="2084" y="896" font-size="10.5" fill="#1b7a33" text-anchor="start">Nupf — UPF service-based interface</text>
-<text x="2084" y="911" font-size="10.5" fill="#1b7a33" text-anchor="start">N89 / N96 — TSCTSF interconnection</text>
-<text x="2084" y="926" font-size="10.5" fill="#1b7a33" text-anchor="start">N97 / N99 — NSACF interconnection</text>
-<text x="2084" y="941" font-size="10.5" fill="#1b7a33" text-anchor="start">NCR — Network-Controlled Repeater (38.300)</text>
-<text x="2084" y="956" font-size="10.5" fill="#1b7a33" text-anchor="start">MBSR — Mobile Base Station Relay</text>
-<text x="2084" y="971" font-size="10.5" fill="#1b7a33" text-anchor="start">TSC + DetNet · RedCap → eRedCap</text>
-<text x="2084" y="1001" font-size="13" fill="#0d47a1" text-anchor="start" font-weight="bold">Release-19 — New ERA</text>
-<text x="2084" y="1016" font-size="10.5" fill="#0d47a1" text-anchor="start">EIF — Energy Information Function (29.566)</text>
-<text x="2084" y="1031" font-size="10.5" fill="#0d47a1" text-anchor="start">Ambient IoT — AIOTF / ADM (23.369)</text>
-<text x="2084" y="1046" font-size="10.5" fill="#0d47a1" text-anchor="start">Nscp — SCP service-based interface</text>
-<text x="2084" y="1061" font-size="10.5" fill="#0d47a1" text-anchor="start">NR Femto (38.300 §4.10) · MWAB</text>
-<text x="2084" y="1076" font-size="10.5" fill="#0d47a1" text-anchor="start">Energy Efficiency architecture (23.501 §4.2.18)</text>
-<text x="2084" y="1106" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Inter-PLMN Security</text>
-<rect x="2088" y="1118" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
-<text x="2140" y="1141" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">vSEPP</text>
-<rect x="2268" y="1118" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
-<text x="2320" y="1141" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">hSEPP</text>
-<line x1="2192.0" y1="1136.0" x2="2268.0" y2="1136.0" stroke="#141414" stroke-width="1.1"/>
-<rect x="2215" y="1127" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
-<text x="2230" y="1140" font-size="11" fill="#141414" text-anchor="middle">N32</text>
-<text x="2230" y="1180" font-size="9.5" fill="#555555" text-anchor="middle">29.573 · Telescopic FQDN · PRINS</text>
-<text x="2084" y="1210" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Legend</text>
-<line x1="2086.0" y1="1227.0" x2="2128.0" y2="1227.0" stroke="#141414" stroke-width="1.6"/>
-<text x="2138" y="1231" font-size="10.5" fill="#141414" text-anchor="start">up to Release-17</text>
-<line x1="2086.0" y1="1248.0" x2="2128.0" y2="1248.0" stroke="#1b7a33" stroke-width="1.6"/>
-<text x="2138" y="1252" font-size="10.5" fill="#141414" text-anchor="start">Release-18</text>
-<line x1="2086.0" y1="1269.0" x2="2128.0" y2="1269.0" stroke="#0d47a1" stroke-width="1.6"/>
-<text x="2138" y="1273" font-size="10.5" fill="#141414" text-anchor="start">Release-19</text>
-<line x1="2086.0" y1="1290.0" x2="2128.0" y2="1290.0" stroke="#141414" stroke-width="3.2"/>
-<text x="2138" y="1294" font-size="10.5" fill="#141414" text-anchor="start">user plane (N3 / N9 / N6)</text>
-<line x1="2086.0" y1="1311.0" x2="2128.0" y2="1311.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
-<text x="2138" y="1315" font-size="10.5" fill="#141414" text-anchor="start">logical / roaming / inter-PLMN</text>
-<text x="2084" y="1349" font-size="9.5" fill="#555555" text-anchor="start">Draft v3 — prepared for review. Not for publication.</text>
+<text x="2084" y="811" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">ADMF</text>
+<text x="2144" y="811" font-size="9.5" fill="#141414" text-anchor="start">Administration Function (LI)</text>
+<text x="2084" y="824" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LICF</text>
+<text x="2144" y="824" font-size="9.5" fill="#141414" text-anchor="start">Lawful Interception Control Function</text>
+<text x="2084" y="838" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LIPF</text>
+<text x="2144" y="838" font-size="9.5" fill="#141414" text-anchor="start">Lawful Interception Provisioning Function</text>
+<text x="2084" y="851" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MDF2</text>
+<text x="2144" y="851" font-size="9.5" fill="#141414" text-anchor="start">Mediation and Delivery Function 2 (IRI)</text>
+<text x="2084" y="864" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MDF3</text>
+<text x="2144" y="864" font-size="9.5" fill="#141414" text-anchor="start">Mediation and Delivery Function 3 (CC)</text>
+<text x="2084" y="878" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LEMF</text>
+<text x="2144" y="878" font-size="9.5" fill="#141414" text-anchor="start">Law Enforcement Monitoring Facility</text>
+<text x="2084" y="891" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">N3IWF</text>
+<text x="2144" y="891" font-size="9.5" fill="#141414" text-anchor="start">Non-3GPP InterWorking Function</text>
+<text x="2084" y="905" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TNGF</text>
+<text x="2144" y="905" font-size="9.5" fill="#141414" text-anchor="start">Trusted Non-3GPP Gateway Function</text>
+<text x="2084" y="918" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TWIF</text>
+<text x="2144" y="918" font-size="9.5" fill="#141414" text-anchor="start">Trusted WLAN Interworking Function</text>
+<text x="2084" y="931" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">W-AGF</text>
+<text x="2144" y="931" font-size="9.5" fill="#141414" text-anchor="start">Wireline Access Gateway Function</text>
+<text x="2084" y="961" font-size="13" fill="#1b7a33" text-anchor="start" font-weight="bold">Release-18 Enhancements</text>
+<text x="2084" y="976" font-size="10.5" fill="#1b7a33" text-anchor="start">Nupf — UPF service-based interface</text>
+<text x="2084" y="991" font-size="10.5" fill="#1b7a33" text-anchor="start">N89 / N96 — TSCTSF interconnection</text>
+<text x="2084" y="1006" font-size="10.5" fill="#1b7a33" text-anchor="start">N97 / N99 — NSACF interconnection</text>
+<text x="2084" y="1021" font-size="10.5" fill="#1b7a33" text-anchor="start">NCR — Network-Controlled Repeater (38.300)</text>
+<text x="2084" y="1036" font-size="10.5" fill="#1b7a33" text-anchor="start">MBSR — Mobile Base Station Relay</text>
+<text x="2084" y="1051" font-size="10.5" fill="#1b7a33" text-anchor="start">TSC + DetNet · RedCap → eRedCap</text>
+<text x="2084" y="1081" font-size="13" fill="#0d47a1" text-anchor="start" font-weight="bold">Release-19 — New ERA</text>
+<text x="2084" y="1096" font-size="10.5" fill="#0d47a1" text-anchor="start">EIF — Energy Information Function (29.566)</text>
+<text x="2084" y="1111" font-size="10.5" fill="#0d47a1" text-anchor="start">Ambient IoT — AIOTF / ADM (23.369)</text>
+<text x="2084" y="1126" font-size="10.5" fill="#0d47a1" text-anchor="start">Nscp — SCP service-based interface</text>
+<text x="2084" y="1141" font-size="10.5" fill="#0d47a1" text-anchor="start">NR Femto (38.300 §4.10) · MWAB</text>
+<text x="2084" y="1156" font-size="10.5" fill="#0d47a1" text-anchor="start">Energy Efficiency architecture (23.501 §4.2.18)</text>
+<text x="2084" y="1186" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Inter-PLMN Security</text>
+<rect x="2088" y="1198" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
+<text x="2140" y="1221" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">vSEPP</text>
+<rect x="2268" y="1198" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
+<text x="2320" y="1221" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">hSEPP</text>
+<line x1="2192.0" y1="1216.4" x2="2268.0" y2="1216.4" stroke="#141414" stroke-width="1.1"/>
+<rect x="2215" y="1207" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2230" y="1220" font-size="11" fill="#141414" text-anchor="middle">N32</text>
+<text x="2230" y="1260" font-size="9.5" fill="#555555" text-anchor="middle">29.573 · Telescopic FQDN · PRINS</text>
+<text x="2084" y="1290" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Legend</text>
+<line x1="2086.0" y1="1307.4" x2="2128.0" y2="1307.4" stroke="#141414" stroke-width="1.6"/>
+<text x="2138" y="1311" font-size="10.5" fill="#141414" text-anchor="start">up to Release-17</text>
+<line x1="2086.0" y1="1328.4" x2="2128.0" y2="1328.4" stroke="#1b7a33" stroke-width="1.6"/>
+<text x="2138" y="1332" font-size="10.5" fill="#141414" text-anchor="start">Release-18</text>
+<line x1="2086.0" y1="1349.4" x2="2128.0" y2="1349.4" stroke="#0d47a1" stroke-width="1.6"/>
+<text x="2138" y="1353" font-size="10.5" fill="#141414" text-anchor="start">Release-19</text>
+<line x1="2086.0" y1="1370.4" x2="2128.0" y2="1370.4" stroke="#141414" stroke-width="3.2"/>
+<text x="2138" y="1374" font-size="10.5" fill="#141414" text-anchor="start">user plane (N3 / N9 / N6)</text>
+<line x1="2086.0" y1="1391.4" x2="2128.0" y2="1391.4" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<text x="2138" y="1395" font-size="10.5" fill="#141414" text-anchor="start">logical / roaming / inter-PLMN</text>
+<text x="2084" y="1429" font-size="9.5" fill="#555555" text-anchor="start">Draft v3 — prepared for review. Not for publication.</text>
 <text x="785" y="1582" font-size="10.5" fill="#555555" text-anchor="middle">38.300 Overall · 38.401 Architecture</text>
 <text x="1190" y="1652" font-size="11" fill="#555555" text-anchor="middle">Series: 3GPP Overall Architecture Poster · New ERA Edition (Release-19) · Diagram layout after M. Ogawa, “3GPP Overall Architecture and Specifications” (2021)</text>
 <rect x="2" y="2" width="2376" height="1676" fill="none" stroke="#141414" stroke-width="2"/>
