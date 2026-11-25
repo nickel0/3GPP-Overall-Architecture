@@ -47,3 +47,23 @@ Architecture and Specifications" (up to Release-17).
 - 中心部のラベル近接など、レイアウト調整は継続中
 
 Prepared by RE-X K.K. (Powered by RE-X) — poster project for Ogawa's diagram.
+
+## draw.io 版 / draw.io version
+
+- `new-era-diagram.drawio` — **正本（マスター）**。diagrams.net / draw.io
+  デスクトップで編集できます。線はエルボーコネクタで引き、交差部には
+  ラインジャンプを使う draw.io の流儀で再構成した版です
+  (The master file. Editable in diagrams.net / draw.io Desktop.
+  Edges use elbow connectors and line jumps.)
+- `new-era-diagram-drawio.pdf` / `new-era-diagram-drawio.svg` —
+  上記 `.drawio` からの書き出しです
+  (Exports from the .drawio master.)
+- `new-era-drawio-notes.md` — draw.io 化の設計メモ
+- SVG 直描き版（`new-era-diagram-v3.svg` / `.pdf`）は比較用として
+  残しています
+
+**注意 / Note**：CLI で書き出した PDF は実寸の 0.72 倍
+（1141.6×807.6mm）で出力されます。A0（1189×841mm）で印刷する際は
+スケール調整が必要です。
+(The CLI-exported PDF comes out at 0.72x actual size
+(1141.6 x 807.6 mm); rescale when printing at A0, 1189 x 841 mm.)
