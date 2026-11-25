@@ -1,72 +1,118 @@
-# New ERA版 下図 — draw.io 化 notes
+# New ERA diagram — draw.io v6 notes
 
-生成：`gen-drawio.py`（gen-v4.py の座標・要素・接続データを正本として読み取り、mxGraph XML を生成）
-成果物：`new-era-diagram-drawio.drawio`（566セル、214KB）／ `new-era-diagram-drawio.pdf` ／ `new-era-diagram-drawio.svg`
+Generated 2026-11-25 by `gen-drawio-v6.py` (derived from `gen-drawio-v5.py`).
+Master file: `new-era-diagram-drawio-v6.drawio` (660 cells, 741,255 bytes).
+Exports: `new-era-diagram-drawio-v6.pdf` (409,952 bytes) /
+`new-era-diagram-drawio-v6.svg` (6,978,887 bytes), produced on the WSL with
+draw.io desktop v32.7.4 CLI under
+`dbus-run-session -- xvfb-run -a /opt/drawio/drawio --export …`.
+Preview: `../preview/new-era-drawio-v6.jpg` (110 dpi render of the PDF).
 
-## 結論（先に）
+v6 = v5 (zones, routing, node layout, styling, poster bands — all
+unchanged) plus the "SA Only" wording, per the user decision of
+2026-11-25 19:21 (New ERA = the standalone era, phrased "SA Only"):
 
-**draw.io を正本にできる。** エルボーコネクタとラインジャンプは draw.io 標準機能としてそのまま効くことを実レンダリングで確認した。内容（テキスト518件）は v4 と完全一致。ただし自動ルーティングは v4／v5 の手調整経路を再現しないため、正本化の直後に中心部の経路とラベル位置をエディタ上で一度手直しする前提が要る。
+1. **Badge**: "New ERA · Release-19" → **"New ERA · SA Only · Release-19"**.
+2. **Meaning note** on the poster (short version from
+   `../explainer/new-era-meaning.md`).
+3. "Draft v5" → "Draft v6" labels (title block, right panel).
 
-## 方式
+## 1. Badge (final form)
 
-- データ源は `gen-v4.py` をサンドボックス実行して得た NODES／EDGES／STUBS／ゾーン定義。パネル類のリスト（略語表・カテゴリ・プロトコルスタック・凡例）は gen-v4.py の AST からリテラルを抽出（転記ミスを避けるため）。配置計算（パネルの y 積み上げ等）は gen-v4.py の算術を複製した。
-- 単位：draw.io ネイティブの 96dpi px に統一（1mm = 96/25.4 px、フォントは pt × 96/72 px）。ページは **A0 横向き実寸 = 4494 × 3179 px**（pageWidth／pageHeight に設定）。
-- スタイルは v4 の流儀を再現：リリース色（黒／緑／青）は枠色＋名前文字色、ゾーンは塗りなし枠＋見出しタブ、ユーザープレーンは太線（1.1mm 相当）、破線対象は dashed。
-- 線は全てコネクタ（source／target をノードに接続）で、`edgeStyle=orthogonalEdgeStyle;rounded=1`。出入り点は相手ノードの方向から決め、同じ辺に付く線は辺上に均等分配した（Visio の接着点の考え方）。
-- キャプション（箱下の SBI 名等）とプロトコル注記は v4 と同じ位置の独立テキストセル。パネル類も v4 と同じ座標に1行1セルで再現した。
+- Text: **New ERA · SA Only · Release-19** (white bold, black chip).
+- Chip geometry changed: (1061, 9, 118×26) → **(1055, 9, 124×26)**;
+  font 22pt → **17pt**, so the 30-char text stays on one line.
+  Calibration: the v5 badge text measured 95.4mm wide at 22pt in the
+  exported PDF (PyMuPDF span bbox), i.e. 30 chars would need ~143mm at
+  22pt but only ~110mm at 17pt. In the v6 export the text spans
+  x = 1063.0–1169.7mm inside the 1055–1179mm chip (≈8mm margins).
+- The 3GPP logo (968, 5, 79.1×46mm) is untouched — same size and place
+  as v5 (user direction: logo stays large).
 
-## ラインジャンプの効き具合（検証済み）
+## 2. Meaning note (final form and placement)
 
-- 全コネクタとスタブに `jumpStyle=arc;jumpSize=8` を付けた（draw.io のラインジャンプはセル単位のスタイル属性。図全体の既定として全線に付与する形で有効化した）。
-- draw.io デスクトップ CLI（v32.7.4）で書き出した PDF を拡大確認し、**交差部に半円の跳び越しが自動で描かれている**ことを確認した。ゾーン枠線との交差、破線同士の交差でも効いている。
-- ジャンプは「描画時に計算される性質」なので、ノードを動かして線が再ルーティングされても交差が移れば自動で付け替わる。v5 のように SVG に焼き付ける方式との本質的な違いはここ。
+Final text (verbatim from `new-era-meaning.md`, short version (a)):
 
-## v4 との内容差分（検証結果）
+> **New ERA — The Standalone Era**
+> 5G built on the 5G Core and NR alone, with no legacy anchor.
+> A standalone-only view of the 5G-Advanced era (Release 18 onwards), drawn from Release 19.
 
-- v4 SVG と .drawio の全テキストを多重集合で比較：**518件対518件、欠落ゼロ・余分ゼロ**。
-- セル内訳：ノード箱・ゾーン枠／タブ・コネクタ（参照点ラベル付き）・スタブ・パネル行・注記まで全てセル化されている。テキストでない図形（CORE ポリゴン等）は線分セルの列で再現。
+- **Language decision: English.** The poster body is entirely English
+  (title, panels, notes, credit band), so the note follows the poster;
+  the Japanese version of the same text lives in
+  `../explainer/new-era-meaning.md` and, in its long form, now also in
+  `../explainer/3gpp-explainer-v0.md` (see §4 below).
+- **Placement: the open centre of the credit band**, centred at x=475 —
+  between the © block (texts end ≈x=230) and the QR code (x=650.5).
+  This is the one area that competes with nothing: the title band's
+  underside has only ~8mm before the zone tabs start (y≈57.7), and the
+  strip above the left panel is too narrow for 3 lines. Baselines align
+  with the credit block's rhythm: heading (12pt bold) at 813, body lines
+  (9.5pt grey) at 823.5 / 832.5 — the same baselines as the © line and
+  the two credit lines. Measured in the export: heading spans
+  x = 437.3–512.3, body lines 423.2–526.4 and 395.1–554.5 (all mm,
+  nominal page coordinates); the "38.300 Overall · 38.401 Architecture"
+  caption (baseline 806, centred x=384) stays clear above the heading.
 
-## 見た目の比較（draw.io 書き出し vs v4）
+## 3. Text diff (verify-drawio-v6.py) — fully accounted
 
-- 全体構成・配置・パネルは v4 を忠実に再現。疎な領域（non-3GPP、ユーザープレーン、LI）では直角ルーティングが v4 の直線より読みやすい。
-- 中心部（UDM／NEF／PCF 周辺）は自動ルーティングが回廊を共有するため v4 より混んで見える箇所がある。ラベルがキャプションに重なる例（N110、LI_X1 等）、遠回りする経路（Gm 等）もある。いずれもエディタ上で線を掴んで直せる種類の粗さで、構造的な欠落ではない。
-- 生成時に見つけて直した不具合：SCP 配置枠（白塗り）を NRF／SCP の箱より後に置いたため箱が隠れた → 枠を先に置くよう生成順を変更し、再書き出しで表示を確認済み。**draw.io では「後から置いたセルが上」が原則なので、枠類は背面に送る運用が要る。**
+Totals: v6 = 572 texts; v5 = 569; v1 baseline = 518.
+v6 − v5 = **+6 / −3**, exactly the intended delta:
 
-## エクスポートについて
+- +1 badge "New ERA · SA Only · Release-19" (−1 old badge),
+- +3 meaning note (heading + 2 body lines),
+- +2 "Draft v6" strings (title third line, right-panel note;
+  −2 "Draft v5" strings).
 
-- 手段：draw.io デスクトップ版 CLI v32.7.4（公式 AppImage を `~/.cache/drawio-cli/` に取得・展開し、xvfb 下で実行）。コマンドは `AppRun --no-sandbox -x -f pdf|svg -o <out> <in.drawio>`。
-- PDF：1ページで書き出せるが、寸法は **1141.6 × 807.6mm**（ページ px に対して一律 0.72 倍になる。`-s` オプションでは変わらなかった）。**A0 実寸で印刷する場合は、UI の印刷設定で用紙 A0＋フィットを指定するか、書き出し後に 1.0415 倍へスケールすること。**
-- SVG：書き出し可能（5.7MB。フォント埋め込みのため大きい）。印刷入稿の正本は従来どおり PDF／SVG 生成系（v4 系）で出し、draw.io は編集の正本と位置付けるのが安全。
+No NF name, reference-point label, zone tab or note from v5 is missing;
+v6 − v1 shows only the accumulated v4/v5/v6 deltas.
 
-## draw.io 化の利点と制約
+## 4. Explainer updated
 
-利点：
-- 小川さんを含む誰でも、ブラウザ（diagrams.net）やデスクトップアプリで開いて直接編集できる単一ファイルになる。コード生成を介さない修正が可能。
-- 線がノードに接続されたコネクタなので、箱を動かせば線が追随する。ジャンプも自動で付け替わる。
-- Visio 風の見た目（直角コネクタ＋ジャンプ）が標準機能で得られ、v5 のような自前ルーティング実装が不要になる。
+`../explainer/3gpp-explainer-v0.md`, section 5: a new subsection
+「「New ERA」という名前について」 was added right after the New ERA
+Edition paragraph, carrying the long (paragraph) version of the meaning
+text from `new-era-meaning.md` §3(b), verbatim (4 paragraphs: the name
+is RE-X's, not a 3GPP term — the official name is 5G-Advanced; SA /
+Option 2 vs NSA / EN-DC; what disappears from the diagram; the caveat
+that real networks keep EPC interworking during migration).
 
-制約：
-- 自動ルーティングは v4／v5 の手調整（t 値でのラベル位置、箱貫通回避）を再現しない。ラベル位置は相対位置の近似で入れてあり、最終調整はエディタ作業になる。
-- タイポグラフィの細かい制御（文字間、行間の詰め）は SVG 直描きより弱い。パネル類は1行1セルで再現したため、文言修正はセル単位になる。
-- CLI 書き出し PDF は上記のとおり実寸にならない（0.72 倍）。印刷フローは別に持つこと。
-- セル数が多く（566）、Git 上の差分は XML 全体に及ぶ。版管理は「版ごとのファイル差し替え」が現実的。
+## 5. Verification (verify-drawio-v6.py, on the .drawio) — ALL PASSED
 
-## v5（SVG 直描き方式）との比較見解
+- Zone audit: frames extracted from the .drawio equal the canonical
+  gen-v5r3 rects (outer 12/12, sub 31/31); all 69 NF boxes inside their
+  assigned outer frame, the 43 CORE boxes inside exactly one assigned
+  subcategory frame, 26 non-CORE boxes inside none; PARTIAL 0;
+  sub frames nested 31/31; frame edge × box crossings 0; tab × box
+  overlaps 0. Membership counts identical to v5.
+- Routing: nodes 69, edges 125, stubs 16. Penetrations 0 (edges,
+  stubs), endpoint incursions 0. The 3 NG-RAN container-internal
+  crossings (F1-C / F1-U / E1) are by design, as in v2–v5.
+  "Non-orthogonal segments: 201" is the known 0.1px rounding artifact,
+  same as v4/v5.
+- Poster band audit: 4 embedded image cells (3GPP logo ×2, QR, RE-X
+  logo); badge, © line, credit lines, QR URL, "Powered by" and the
+  three meaning-note texts all present.
 
-- v5 は自前実装のエルボー配線＋交差検出ジャンプを静的 SVG に焼く方式。最終出力の見た目は完全に制御でき、印刷実寸も正確。反面、修正はすべてコード変更＋再生成で、第三者が手を入れる道がない。
-- draw.io は制御の細かさで劣るが、編集の開放性と「動かせば線とジャンプが付いてくる」性質が、正本としての価値で上回る。**推奨：正本は draw.io、印刷用の清書は節目で SVG／PDF 系に書き出して作る二層運用。**
+## 6. Known items (carried over from v5, unchanged)
 
-## fork への配置提案（ユーザー決定：本拠は fork）
+- SBA COMMON tab: last letter overflows its chip (gen-v5r3 chip-width
+  formula); canonical geometry kept.
+- CLI export scale quirk: the exported PDF page is 1141.6×807.6mm
+  (0.960× A0); print-scale handling still to be settled before
+  production.
+- The gen-v5r3 SVG still hides the SBA COMMON frame behind the SCP
+  deployment frame (draw order); the draw.io line has it fixed since
+  v5. Fix at the source if the SVG line is kept.
 
-対象 fork：`re-x-agent/3GPP-Overall-Architecture`（PR #11 で `new-era-rel19/` フォルダを追加済み）。
+## 7. Files
 
-- **置き場所：`new-era-rel19/new-era-diagram.drawio`**（PR #11 で作った New ERA 専用フォルダの中。repo ルートは小川さんの原図ファイル（pptx／pdf／jpg）の置き場なので、RE-X 側の追加物はこのフォルダに寄せる現行構成を維持する）。
-- 書き出し物も同じフォルダに同名で並べる：`new-era-rel19/new-era-diagram.pdf`、`new-era-rel19/new-era-diagram.svg`（現行の v3 名義ファイルは版の記録として残すか、差し替え時に README で版関係を明記する）。
-- フォルダの README に「正本は .drawio、PDF／SVG はそこからの書き出し」という一文を足す。
-- 版の重ね方：fork 側ブランチで .drawio を直接編集してコミットし、節目で PR（#11 の更新または後継 PR）へ反映する。この VM 側の `new-era/` フォルダと gen-* スクリプトは、生成・差分検証のための道具として手元に残す（fork へは入れない）。
-
-## 開いて確認する手順
-
-1. https://app.diagrams.net を開く →「ファイルを開く／Open Existing Diagram」→ `new-era-diagram-drawio.drawio` を選ぶ（デバイスから開く）。
-2. デスクトップアプリでも同じファイルを開ける。再書き出しは上記 CLI でも可（要 xvfb と AppImage）。
-3. 編集後は必ず PDF か SVG に書き出して、中心部のラベル重なりと NRF／SCP 枠まわりを目視確認すること。
+- `gen-drawio-v6.py` — generator (badge + meaning note + Draft labels
+  are the only deltas vs v5)
+- `verify-drawio-v6.py` — routing checks + two-level zone audit +
+  band audit (incl. meaning-note presence)
+- `new-era-diagram-drawio-v6.drawio` — master, 660 cells
+- `new-era-diagram-drawio-v6.pdf` / `.svg` — CLI exports
+- `../preview/new-era-drawio-v6.jpg` — full preview (110 dpi)
+- `../explainer/3gpp-explainer-v0.md` — §5 gained the
+  「New ERA」という名前について subsection

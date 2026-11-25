@@ -67,3 +67,14 @@ Prepared by RE-X K.K. (Powered by RE-X) — poster project for Ogawa's diagram.
 スケール調整が必要です。
 (The CLI-exported PDF comes out at 0.72x actual size
 (1141.6 x 807.6 mm); rescale when printing at A0, 1189 x 841 mm.)
+
+**更新（v6）/ Update (v6)**：正本を v6 に更新しました。バッジは
+「New ERA · SA Only · Release-19」、カテゴリは CORE — 5GC の内側に
+サブカテゴリを入れる二段構えに細分化し、ポスターのタイトル帯・
+クレジット帯（3GPP ロゴ、© 表記、QR、Powered by RE-X）と
+「New ERA — The Standalone Era」の説明文を追加しています。
+詳細は `new-era-drawio-notes.md` を参照してください。
+(The master is now v6: badge "New ERA · SA Only · Release-19",
+two-level category zones inside CORE — 5GC, poster title/credit
+bands, and a short "New ERA — The Standalone Era" note.
+See `new-era-drawio-notes.md` for details.)
