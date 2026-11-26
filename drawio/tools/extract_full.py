@@ -5,11 +5,15 @@ Flattens group transforms, captures geometry preset, fill, line, text runs
 (font size/bold/color per paragraph), rotation/flips, and connector
 connection references (stCxn/endCxn -> shape id + site index).
 """
-import zipfile, json, math
+import zipfile, json, math, os
 import xml.etree.ElementTree as ET
 
-PPTX = '/home/hatch/workspace/work/ogawa-3gpp-poster/original/3GPP_Overall_Architecture_and_Specifications.pptx'
-OUT = '/home/hatch/workspace/work/ogawa-3gpp-poster/composite/work/shapes_full.json'
+HERE = os.path.dirname(os.path.abspath(__file__))
+# Defaults follow the repository layout (drawio/tools/ -> ../../diagram/*.pptx).
+PPTX = os.environ.get('PPTX', os.path.join(HERE, '..', '..', 'diagram',
+                      '3GPP_Overall_Architecture_and_Specifications.pptx'))
+BUILD = os.environ.get('BUILD_DIR', os.path.join(HERE, '..', 'build'))
+OUT = os.path.join(BUILD, 'shapes_full.json')
 A = 'http://schemas.openxmlformats.org/drawingml/2006/main'
 P = 'http://schemas.openxmlformats.org/presentationml/2006/main'
 NS = {'a': A, 'p': P}
@@ -20,6 +24,7 @@ def q(ns, tag): return '{%s}%s' % (ns, tag)
 def get_xfrm(el):
     """Return dict with off/ext/chOff/chExt/rot/flip or None."""
     xf = el.find('.//a:xfrm', NS)
+    if xf is None: xf = el.find('p:xfrm', NS)   # graphicFrame (tables)
     if xf is None: return None
     def pt(tag):
         e = xf.find('a:' + tag, NS)
@@ -125,6 +130,10 @@ def paragraphs(el):
     # body properties: anchor, insets
     bp = txBody.find('a:bodyPr', NS)
     anchor = bp.get('anchor') if bp is not None else None
+    # paragraph alignment default: the shape's own lstStyle (lvl1pPr algn),
+    # otherwise None (= presentation defaultTextStyle, algn="l")
+    l1 = txBody.find('a:lstStyle/a:lvl1pPr', NS)
+    def_algn = l1.get('algn') if l1 is not None else None
     for p in txBody.findall('a:p', NS):
         runs = []
         for r in p.findall('a:r', NS):
@@ -145,9 +154,56 @@ def paragraphs(el):
         epr = p.find('a:endParaRPr', NS)
         dsz = int(epr.get('sz')) / 100.0 if epr is not None and epr.get('sz') else None
         pPr = p.find('a:pPr', NS)
-        algn = pPr.get('algn') if pPr is not None else None
+        algn = (pPr.get('algn') if pPr is not None else None) or def_algn
         paras.append({'runs': runs, 'defsz': dsz, 'algn': algn})
     return paras
+
+def body_info(el):
+    """Text body properties: wrap mode, insets (mm) and vertical anchor.
+    Defaults follow DrawingML (wrap=square, l/r 2.54mm, t/b 1.27mm, anchor t)."""
+    txBody = el.find('p:txBody', NS)
+    if txBody is None: txBody = el.find('a:txBody', NS)
+    if txBody is None: return None
+    bp = txBody.find('a:bodyPr', NS)
+    g = (lambda k, d: d if bp is None or bp.get(k) is None else bp.get(k))
+    emu = lambda k, d: int(g(k, d)) / EMU_MM
+    return {'wrap': g('wrap', 'square'), 'anchor': g('anchor', 't'),
+            'lIns': emu('lIns', 91440), 'rIns': emu('rIns', 91440),
+            'tIns': emu('tIns', 45720), 'bIns': emu('bIns', 45720)}
+
+def border(tcPr, tag):
+    if tcPr is None: return None
+    ln = tcPr.find('a:' + tag, NS)
+    if ln is None or ln.find('a:noFill', NS) is not None: return None
+    col = resolve_color(ln.find('a:solidFill', NS))
+    if col is None: return None
+    return {'color': col, 'w_pt': int(ln.get('w', 12700)) / 12700.0}
+
+def table_info(el):
+    """a:tbl inside a graphicFrame -> column widths, row heights (mm, local)
+    and cells with text, fill, borders, margins and anchor."""
+    tbl = el.find('.//a:tbl', NS)
+    if tbl is None: return None
+    cols = [int(c.get('w')) / EMU_MM for c in tbl.findall('a:tblGrid/a:gridCol', NS)]
+    rows, cells = [], []
+    for ri, tr in enumerate(tbl.findall('a:tr', NS)):
+        rows.append(int(tr.get('h')) / EMU_MM)
+        for ci, tc in enumerate(tr.findall('a:tc', NS)):
+            if tc.get('hMerge') == '1' or tc.get('vMerge') == '1':
+                continue
+            tcPr = tc.find('a:tcPr', NS)
+            m = (lambda k, d: int(tcPr.get(k, d)) / EMU_MM if tcPr is not None else d / EMU_MM)
+            cells.append({
+                'r': ri, 'c': ci,
+                'cs': int(tc.get('gridSpan', 1)), 'rs': int(tc.get('rowSpan', 1)),
+                'paras': paragraphs(tc),
+                'fill': resolve_color(tcPr.find('a:solidFill', NS)) if tcPr is not None else None,
+                'b': {k: border(tcPr, k) for k in ('lnL', 'lnR', 'lnT', 'lnB')},
+                'marL': m('marL', 91440), 'marR': m('marR', 91440),
+                'marT': m('marT', 45720), 'marB': m('marB', 45720),
+                'anchor': (tcPr.get('anchor') if tcPr is not None else None) or 't',
+            })
+    return {'cols': cols, 'rows': rows, 'cells': cells}
 
 def prst_geom(el):
     g = el.find('.//a:prstGeom', NS)
@@ -208,8 +264,17 @@ def walk(el, transform, out, depth=0):
         'x': round(ax, 2), 'y': round(ay, 2), 'w': round(aw, 2), 'h': round(ah, 2),
         'rot': xf['rot'], 'flipH': xf['flipH'], 'flipV': xf['flipV'],
         'geom': prst_geom(el), 'cust': cust_geom(el), 'fill': fill_info(el), 'line': line_info(el),
-        'paras': paragraphs(el),
+        'paras': [] if tag == 'graphicFrame' else paragraphs(el),
+        'body': body_info(el),
     }
+    if tag == 'graphicFrame':
+        tb = table_info(el)
+        if tb is None:
+            return
+        # scale table grid by the group transform (ext vs. local size)
+        sx = aw / w if w else 1.0; sy = ah / h if h else 1.0
+        tb['cols'] = [c * sx for c in tb['cols']]; tb['rows'] = [r * sy for r in tb['rows']]
+        rec['kind'] = 'tbl'; rec['tbl'] = tb
     if tag == 'cxnSp':
         cxn = {}
         for which, tname in (('st', 'a:stCxn'), ('end', 'a:endCxn')):
@@ -232,6 +297,7 @@ def main():
     for child in spTree:
         walk(child, identity, out)
     data = {'slide_mm': [round(SW, 2), round(SH, 2)], 'shapes': out}
+    os.makedirs(BUILD, exist_ok=True)
     with open(OUT, 'w') as f:
         json.dump(data, f, ensure_ascii=False, indent=1)
     ntext = sum(1 for s in out if any(r['t'] for p in s['paras'] for r in p['runs']))

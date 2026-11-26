@@ -1,10 +1,25 @@
-# draw.io 版について
+# draw.io 版について / About the draw.io version
 
-このフォルダには、原図（PowerPoint / pptx）の draw.io 再現を置きます。
+このフォルダには、原図（`../diagram/3GPP_Overall_Architecture_and_Specifications.pptx`）の draw.io 再現を置きます。
+pptx は原典としてそのまま残し、draw.io 版を今後の編集先（正本）とする位置づけです。
 
-- `3gpp-overall-architecture.drawio` — 原図を draw.io で再現した**マスター**。編集可能な正本としてここに置きます。今後の図の修正はこのファイルを起点に行います。
-- `3gpp-overall-architecture-rel19-composite.drawio` — マスターに Release 18／19 の要素を統合した派生版（複合盤）。
-- `tools/` — 生成パイプライン。`extract_full.py` で pptx から全図形を機械抽出し、`gen_drawio.py` で draw.io（mxGraph XML）へ変換します。再実行で同じ図を再生成できます。
-- `NOTES.md` — 変換方式・検証結果・既知の近似などの設計メモ。
+- `3gpp-overall-architecture.drawio` — 原図を draw.io で再現した**マスター**。ページは A0 横（1189×841 mm）実寸。
+- `export/3gpp-overall-architecture-A0.pdf` — マスターを A0 実寸で書き出した印刷用 PDF（フォント埋め込み済み）。
+- `tools/` — 生成パイプライン（手作業の描き写しはしていません）。
+  - `extract_full.py` — pptx から全図形・表・コネクタを機械抽出（→ `build/shapes_full.json`）
+  - `gen_drawio.py` — 抽出結果を draw.io（mxGraph XML）へ変換し、テキストの一致を自動検証
+  - `export_pdf.py` — draw.io デスクトップ版 CLI で A0 実寸の PDF を書き出し
+- `NOTES.md` — 変換方式・検証結果・既知の近似・印刷の注意。
 
-追加したセルは `add_` 接頭辞の ID で判別できます。色の意味は原図と追加分で異なる場合があるため、`NOTES.md` と図面内の Colour note をあわせて参照してください。
+## 再生成 / Regenerate
+
+```sh
+python3 drawio/tools/extract_full.py      # pptx -> drawio/build/shapes_full.json
+python3 drawio/tools/gen_drawio.py        # -> drawio/*.drawio (+ SVG preview in drawio/build/)
+python3 drawio/tools/export_pdf.py drawio/3gpp-overall-architecture.drawio \
+        drawio/export/3gpp-overall-architecture-A0.pdf
+```
+
+必要なもの：Python 3（`numpy` 不要）、PDF 書き出しには draw.io デスクトップ版（v24 以降）・`xvfb-run`・`pypdf`。
+
+原図に無い要素はヘッダー（タイトル帯）のみです。派生版で追加したセルは `add_` 接頭辞の ID で判別できます。

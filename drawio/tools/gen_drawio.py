@@ -16,12 +16,16 @@ by K = 3370.39/554.47/25.4*72 ... see K below; fonts and stroke widths are
 scaled by FS = K / (72/25.4) so the figure fills the A0 width.
 A title band (TITLE_H units) is reserved at the top of the page.
 """
-import json, math, re, sys
+import json, math, os, re, sys
 import xml.etree.ElementTree as ET
 from xml.sax.saxutils import escape
 
-BASE = '/home/hatch/workspace/work/ogawa-3gpp-poster/composite'
-SRC = BASE + '/work/shapes_full.json'
+HERE = os.path.dirname(os.path.abspath(__file__))
+BUILD = os.environ.get('BUILD_DIR', os.path.join(HERE, '..', 'build'))   # json + previews
+OUTDIR = os.environ.get('DRAWIO_DIR', os.path.join(HERE, '..'))          # .drawio outputs
+SRC = os.path.join(BUILD, 'shapes_full.json')
+MASTER_OUT = os.path.join(OUTDIR, '3gpp-overall-architecture.drawio')
+COMPOSITE_OUT = os.path.join(OUTDIR, '3gpp-overall-architecture-rel19-composite.drawio')
 
 PAGE_W, PAGE_H = 3370.39, 2383.94          # A0 landscape, pt
 SLIDE_W_MM, SLIDE_H_MM = 554.47, 311.87
@@ -45,31 +49,55 @@ by_id = {s['id']: s for s in shapes}
 def shape_text(s):
     return '\n'.join(''.join(r['t'] for r in p['runs']) for p in s['paras']).strip()
 
-# connection-site index -> (fx, fy) on the target bbox (PowerPoint convention)
-SITES = {0: (0.5, 0.0), 1: (1.0, 0.5), 2: (0.5, 1.0), 3: (0.0, 0.5),
-         4: (0.0, 0.0), 5: (1.0, 0.0), 6: (1.0, 1.0), 7: (0.0, 1.0)}
+# Connection sites of a PowerPoint rect run counter-clockwise from the top:
+# 0 = top, 1 = left, 2 = bottom, 3 = right. Only used as a fallback; the
+# connector's own xfrm gives the exact rendered endpoints (see line_endpoints).
+SITES = {0: (0.5, 0.0), 1: (0.0, 0.5), 2: (0.5, 1.0), 3: (1.0, 0.5)}
 
 def conn_point(shape, idx):
     fx, fy = SITES.get(idx, (0.5, 0.5))
     return (shape['x'] + fx * shape['w'], shape['y'] + fy * shape['h'])
 
 def line_endpoints(s):
-    """Endpoints (mm) of a free line/connector from bbox + flips."""
+    """Rendered endpoints (mm) of a line/connector: bbox + flips + rotation
+    about the bbox centre."""
     x, y, w, h = s['x'], s['y'], s['w'], s['h']
     sx = x + (w if s['flipH'] else 0.0)
     sy = y + (h if s['flipV'] else 0.0)
     ex = x + (0.0 if s['flipH'] else w)
     ey = y + (0.0 if s['flipV'] else h)
+    rot = (s.get('rot') or 0.0) % 360.0
+    if rot:
+        cx, cy = x + w / 2.0, y + h / 2.0
+        a = math.radians(rot); ca, sa = math.cos(a), math.sin(a)
+        r = lambda px, py: (cx + (px - cx) * ca - (py - cy) * sa, cy + (px - cx) * sa + (py - cy) * ca)
+        return r(sx, sy), r(ex, ey)
     return (sx, sy), (ex, ey)
+
+def rel_on(shape, p):
+    """Point p (mm) as a fraction of shape's bbox, clamped to [0, 1]."""
+    fx = (p[0] - shape['x']) / shape['w'] if shape['w'] else 0.5
+    fy = (p[1] - shape['y']) / shape['h'] if shape['h'] else 0.5
+    return (round(min(1.0, max(0.0, fx)), 4), round(min(1.0, max(0.0, fy)), 4))
+
+def bent_points(s, p1, p2):
+    """Interior waypoints (mm) of an elbow connector between p1 and p2."""
+    (sx, sy), (ex, ey) = p1, p2
+    if s['geom'] == 'bentConnector2':          # one bend
+        return [(ex, sy)] if abs(ex - sx) >= abs(ey - sy) else [(sx, ey)]
+    if abs(ex - sx) > abs(ey - sy):            # bentConnector3/4: mid-split
+        mx = (sx + ex) / 2.0
+        return [(mx, sy), (mx, ey)]
+    my = (sy + ey) / 2.0
+    return [(sx, my), (ex, my)]
 
 # ---------------------------------------------------------------- text HTML
 def para_align(s, p):
     if p['algn'] == 'ctr': return 'center'
     if p['algn'] == 'l': return 'left'
     if p['algn'] == 'r': return 'right'
-    # deck default: boxed shapes centre, bare text blocks left
-    if (s.get('line') and s['line'].get('color') not in (None, 'none')) or s.get('fill'):
-        return 'center'
+    if p['algn'] == 'just': return 'justify'
+    # no explicit algn: presentation defaultTextStyle is algn="l"
     return 'left'
 
 def value_html(s, extra_style=''):
@@ -103,13 +131,24 @@ def plain_value(s):
 # ---------------------------------------------------------------- styles
 def vertex_style(s):
     geom = s['geom']
-    st = ['whiteSpace=wrap', 'html=1']
+    body = s.get('body') or {}
+    st = ['html=1']
+    # wrap="none" text boxes auto-size to their text in PowerPoint: never wrap
+    st.append('whiteSpace=wrap' if body.get('wrap', 'square') != 'none' else 'whiteSpace=nowrap')
+    if body:
+        st.append({'t': 'verticalAlign=top', 'b': 'verticalAlign=bottom'}.get(body.get('anchor'), 'verticalAlign=middle'))
+        st.append(f"spacingLeft={body['lIns'] * K:.2f}"); st.append(f"spacingRight={body['rIns'] * K:.2f}")
+        st.append(f"spacingTop={body['tIns'] * K:.2f}"); st.append(f"spacingBottom={body['bIns'] * K:.2f}")
+        st.append('spacing=0')
     if geom == 'ellipse':
         st.append('ellipse')
     elif geom == 'leftBracket':
-        st.append('shape=mxgraph.basic.l_bracket')
+        # '[' : draw.io has no mxgraph.basic.l_bracket stencil; use the
+        # built-in partialRectangle with the right side open.
+        st.append('shape=partialRectangle;top=1;bottom=1;left=1;right=0')
     elif geom == 'rightBracket':
-        st.append('shape=mxgraph.basic.r_bracket')
+        # ']' : partialRectangle with the left side open.
+        st.append('shape=partialRectangle;top=1;bottom=1;left=0;right=1')
     else:
         st.append('rounded=0')
     fill = s.get('fill')
@@ -145,6 +184,26 @@ def edge_style(s, jumps=False):
     if jumps: st.append('jumpStyle=arc'); st.append('jumpSize=8')
     return ';'.join(st) + ';'
 
+# ---------------------------------------------------------------- pt -> px
+PX = 96.0 / 72.0   # draw.io unit (CSS px @96dpi) per pt
+
+def px_style(st):
+    return re.sub(r'(fontSize|strokeWidth|jumpSize|spacing\w*)=([0-9.]+)',
+                  lambda m: f'{m.group(1)}={float(m.group(2)) * PX:.2f}'.rstrip('0').rstrip('.'), st)
+
+def px_value(v):
+    return re.sub(r'font-size:([0-9.]+)px', lambda m: f'font-size:{float(m.group(1)) * PX:.1f}px', v)
+
+def px_geom(g):
+    o = {}
+    for k, v in g.items():
+        if k in ('x', 'y', 'w', 'h'): o[k] = v * PX
+        elif k in ('sp', 'tp'): o[k] = (v[0] * PX, v[1] * PX)
+        elif k == 'points': o[k] = [(a * PX, b * PX) for (a, b) in v]
+        elif k == 'lx': o[k] = v
+        else: o[k] = v
+    return o
+
 # ---------------------------------------------------------------- model build
 class Model:
     def __init__(self):
@@ -172,28 +231,41 @@ class Model:
                            'source': source, 'target': target, 'geom': g})
         return cid
     def to_xml(self, title):
+        # Layout is computed in pt (A0 = 3370 x 2384 pt); draw.io units are
+        # CSS px at 96 dpi, so every length is written scaled by PX (=4/3).
+        # The page then equals draw.io's own A0 preset (4494 x 3179 px) and a
+        # 1:1 PDF export comes out at A0 actual size.
         m = ET.Element('mxfile', {'host': 'app.diagrams.net', 'type': 'device'})
         d = ET.SubElement(m, 'diagram', {'name': title, 'id': 'page1'})
         gm = ET.SubElement(d, 'mxGraphModel', {
             'dx': '1000', 'dy': '700', 'grid': '0', 'gridSize': '10',
             'guides': '1', 'tooltips': '1', 'connect': '1', 'arrows': '1',
             'fold': '1', 'page': '1', 'pageScale': '1',
-            'pageWidth': f'{PAGE_W:.0f}', 'pageHeight': f'{PAGE_H:.0f}',
-            'math': '0', 'shadow': '0'})
+            'pageWidth': f'{PAGE_W * PX:.0f}', 'pageHeight': f'{PAGE_H * PX:.0f}',
+            'background': '#FFFFFF', 'math': '0', 'shadow': '0'})
         root = ET.SubElement(gm, 'root')
         ET.SubElement(root, 'mxCell', {'id': '0'})
         ET.SubElement(root, 'mxCell', {'id': '1', 'parent': '0'})
+        # full-page background: makes the export bounding box = the A0 page
+        bg = ET.SubElement(root, 'mxCell', {
+            'id': 'bg_page', 'value': '', 'vertex': '1', 'parent': '1',
+            'style': 'rounded=0;html=1;fillColor=#FFFFFF;strokeColor=none;locked=1;connectable=0;'})
+        ET.SubElement(bg, 'mxGeometry', {'x': '0', 'y': '0', 'width': f'{PAGE_W * PX:.1f}',
+                                          'height': f'{PAGE_H * PX:.1f}', 'as': 'geometry'})
         for c in self.cells:
-            attrs = {'id': c['id'], 'value': c.get('value', ''), 'style': c['style'],
-                     'parent': '1'}
+            attrs = {'id': c['id'], 'value': px_value(c.get('value', '')),
+                     'style': px_style(c['style']), 'parent': '1'}
             if c.get('vertex'): attrs['vertex'] = '1'
             if c.get('edge'):
                 attrs['edge'] = '1'
                 if c.get('source'): attrs['source'] = c['source']
                 if c.get('target'): attrs['target'] = c['target']
             cell = ET.SubElement(root, 'mxCell', attrs)
-            g = c['geom']
+            g = px_geom(c['geom'])
             ga = {'as': 'geometry'}
+            if c.get('edge'):
+                ga['relative'] = '1'
+                if 'lx' in c['geom']: ga['x'] = f"{c['geom']['lx']}"; ga['y'] = '0'
             if 'x' in g:
                 ga.update({'x': f"{g['x']:.1f}", 'y': f"{g['y']:.1f}",
                            'width': f"{g['w']:.1f}", 'height': f"{g['h']:.1f}"})
@@ -213,12 +285,63 @@ class Model:
 # map pptx shape id -> drawio cell id
 cell_of = {}
 
+PT_MM = 25.4 / 72.0
+
+def table_rows(s):
+    """Row heights (mm). Rows grow to fit their text in PowerPoint (h is a
+    minimum, often 0), so estimate from the line count x font size and then
+    normalise to the frame height recorded in the pptx."""
+    tb = s['tbl']
+    need = list(tb['rows'])
+    for c in tb['cells']:
+        if c['rs'] != 1: continue
+        lines = max(1, len(c['paras']))
+        sz = max([r.get('sz', 5.6) for p in c['paras'] for r in p['runs']] or [5.6])
+        need[c['r']] = max(need[c['r']], lines * sz * 1.2 * PT_MM + c['marT'] + c['marB'])
+    tot = sum(need)
+    return [r * s['h'] / tot for r in need] if tot else need
+
+def build_table(model, s, render):
+    """pptx table -> one draw.io cell per table cell (borders per side)."""
+    tb = s['tbl']
+    cols = tb['cols']; rows = table_rows(s)
+    cx = [s['x']]
+    for c in cols: cx.append(cx[-1] + c)
+    ry = [s['y']]
+    for r in rows: ry.append(ry[-1] + r)
+    for c in tb['cells']:
+        x0, x1 = cx[c['c']], cx[min(c['c'] + c['cs'], len(cols))]
+        y0, y1 = ry[c['r']], ry[min(c['r'] + c['rs'], len(rows))]
+        b = c['b']
+        st = ['shape=partialRectangle', 'html=1', 'whiteSpace=wrap', 'connectable=0']
+        for side, key in (('left', 'lnL'), ('right', 'lnR'), ('top', 'lnT'), ('bottom', 'lnB')):
+            st.append(f'{side}={1 if b.get(key) else 0}')
+        any_b = next((v for v in b.values() if v), None)
+        if any_b:
+            st.append(f"strokeColor=#{any_b['color']}"); st.append(f"strokeWidth={any_b['w_pt'] * FS:.2f}")
+        else:
+            st.append('strokeColor=none')
+        st.append(f"fillColor=#{c['fill']}" if c.get('fill') else 'fillColor=none')
+        st.append({'t': 'verticalAlign=top', 'b': 'verticalAlign=bottom'}.get(c['anchor'], 'verticalAlign=middle'))
+        st += [f"spacingLeft={c['marL'] * K:.2f}", f"spacingRight={c['marR'] * K:.2f}",
+               f"spacingTop={c['marT'] * K:.2f}", f"spacingBottom={c['marB'] * K:.2f}", 'spacing=0',
+               'fontFamily=Arial', f'fontSize={5.6 * FS:.1f}', 'fontColor=#000000']
+        pseudo = {'paras': c['paras'], 'line': None, 'fill': c.get('fill')}
+        cid = model.add_vertex(value_html(pseudo), ';'.join(st) + ';',
+                               X(x0), Y(y0), (x1 - x0) * K, (y1 - y0) * K,
+                               cid=f"o{s['id']}_r{c['r']}c{c['c']}")
+        render.append(('rect', X(x0), Y(y0), (x1 - x0) * K, (y1 - y0) * K, c.get('fill'),
+                       any_b['color'] if any_b else None, plain_value(pseudo)))
+
 def build_original(model, jumps=False):
     """Add all original shapes. Returns dict of render items for SVG preview."""
     render = []  # ('rect'|'ellipse'|'line'|'poly'|'text', ...)
     # vertices first (connectors reference them)
     for s in shapes:
         if s['kind'] == 'cxnSp':
+            continue
+        if s['kind'] == 'tbl':
+            build_table(model, s, render)
             continue
         geom = s['geom']
         if geom == 'line':
@@ -267,23 +390,40 @@ def build_original(model, jumps=False):
             continue
         cxn = s.get('cxn') or {}
         value = value_html(s)
-        if 'st' in cxn and 'end' in cxn and cxn['st']['id'] in cell_of and cxn['end']['id'] in cell_of:
-            src = by_id[cxn['st']['id']]; dst = by_id[cxn['end']['id']]
-            ex = SITES.get(cxn['st']['idx'], (0.5, 0.5))
-            en = SITES.get(cxn['end']['idx'], (0.5, 0.5))
-            cid = model.add_edge(value, edge_style(s, jumps),
-                                 source=cell_of[src['id']], target=cell_of[dst['id']],
-                                 exit_xy=ex, entry_xy=en, cid='o' + s['id'])
-            p1 = conn_point(src, cxn['st']['idx']); p2 = conn_point(dst, cxn['end']['idx'])
-            render.append(('line', (X(p1[0]), Y(p1[1])), (X(p2[0]), Y(p2[1])),
-                           (s.get('line') or {}).get('color') or BLACK, (s.get('line') or {}).get('dash')))
-        else:
-            (sx, sy), (ex2, ey2) = line_endpoints(s)
-            cid = model.add_edge(value, edge_style(s, jumps),
-                                 sp=(X(sx), Y(sy)), tp=(X(ex2), Y(ey2)), cid='o' + s['id'])
-            render.append(('line', (X(sx), Y(sy)), (X(ex2), Y(ey2)),
-                           (s.get('line') or {}).get('color') or BLACK, (s.get('line') or {}).get('dash')))
+        # Exact rendered endpoints from the connector's own xfrm. Attached
+        # ends keep their source/target link and pin the attachment point
+        # with exit/entry fractions computed from those coordinates
+        # (exit/entryPerimeter=0), so draw.io draws the line where the
+        # original does instead of re-deriving it from the site index.
+        p1, p2 = line_endpoints(s)
+        src = by_id.get(cxn['st']['id']) if 'st' in cxn and cell_of.get(cxn['st']['id']) else None
+        dst = by_id.get(cxn['end']['id']) if 'end' in cxn and cell_of.get(cxn['end']['id']) else None
+        sty = edge_style(s, jumps)
+        if src: sty += 'exitPerimeter=0;'
+        if dst: sty += 'entryPerimeter=0;'
+        pts = bent_points(s, p1, p2) if s['geom'] and s['geom'].startswith('bentConnector') else []
+        cid = model.add_edge(value, sty,
+                             source=cell_of[src['id']] if src else None,
+                             target=cell_of[dst['id']] if dst else None,
+                             sp=None if src else (X(p1[0]), Y(p1[1])),
+                             tp=None if dst else (X(p2[0]), Y(p2[1])),
+                             points=[(X(a), Y(b)) for (a, b) in pts] or None,
+                             exit_xy=rel_on(src, p1) if src else None,
+                             entry_xy=rel_on(dst, p2) if dst else None,
+                             cid='o' + s['id'])
+        poly = [p1] + pts + [p2]
+        render.append(('poly', [(X(a), Y(b)) for (a, b) in poly],
+                       (s.get('line') or {}).get('color') or BLACK))
         cell_of[s['id']] = cid
+    # z-order: emit original cells in pptx document order (connectors were
+    # added after vertices above, which put every line on top of the white
+    # NF boxes; in the original most lines run underneath them).
+    zidx = {s['id']: i for i, s in enumerate(shapes)}
+    def zkey(c):
+        cid = c['id']
+        if not cid.startswith('o'): return (0, 0)
+        return (1, zidx.get(cid[1:].split('_')[0], 0))
+    model.cells.sort(key=zkey)   # stable: header cells keep their place
     return render
 
 # ---------------------------------------------------------------- additions
@@ -322,13 +462,7 @@ def segments():
     segs = []
     for s in shapes:
         if s['kind'] == 'cxnSp':
-            cxn = s.get('cxn') or {}
-            if 'st' in cxn and 'end' in cxn:
-                p1 = conn_point(by_id[cxn['st']['id']], cxn['st']['idx'])
-                p2 = conn_point(by_id[cxn['end']['id']], cxn['end']['idx'])
-            else:
-                p1, p2 = line_endpoints(s)
-            segs.append((p1, p2))
+            segs.append(line_endpoints(s))
         elif s['geom'] == 'line' and s['kind'] == 'sp':
             p1, p2 = line_endpoints(s)
             segs.append((p1, p2))
@@ -402,6 +536,50 @@ def new_edge_style(color, dashed=False):
     if dashed: st += 'dashed=1;'
     return st
 
+ROUTES_JSON = os.path.join(HERE, 'composite_routes.json')
+_RJ = json.load(open(ROUTES_JSON)) if os.path.exists(ROUTES_JSON) else {}
+ROUTES = _RJ.get('routes', {})
+STUBS = _RJ.get('stubs', {})
+
+def stub_edges(model, cells):
+    """Far-peer stubs in the original figure's own 'to/from X' grammar: a
+    short line from the box ending at the reference-point name. The same name
+    appears at both ends (e.g. N96 at TSCTSF and at NRF in the Annex G
+    example), which is how the reader joins them."""
+    for key, st in STUBS.items():
+        col = GREEN if st['color'] == 'GREEN' else BLUE
+        src_cell, src_box = cells[st['src']]
+        pts = [tuple(p) for p in st['pts']]
+        sty = new_edge_style(col).replace('edgeStyle=orthogonalEdgeStyle;', 'edgeStyle=none;') + 'exitPerimeter=0;'
+        model.add_edge('', sty, source=src_cell, tp=(X(pts[-1][0]), Y(pts[-1][1])),
+                       points=[(X(a), Y(b)) for (a, b) in pts[1:-1]] or None,
+                       exit_xy=rel_on(src_box, pts[0]), cid='add_stub_' + key.replace('@', '_'))
+        x0, y0, x1, y1 = st['lab']
+        model.add_vertex(label_html(st['label'], col).replace('align="center"', f'align="{st["align"]}"'),
+                         'text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;spacing=0;'
+                         f'align={st["align"]};verticalAlign=middle;',
+                         X(x0), Y(y0), (x1 - x0) * K, (y1 - y0) * K, cid='add_stublbl_' + key.replace('@', '_'))
+
+def routed_edge(model, key, label, color, src_cell, dst_cell, src_box, dst_box, dashed=False):
+    """Add an added-element edge along the hand-fixed waypoints in
+    composite_routes.json (slide mm). Endpoints are pinned on the box
+    borders with exit/entry fractions; the label sits at the middle of the
+    longest segment."""
+    r = ROUTES.get(key)
+    st = new_edge_style(color, dashed)
+    if not r:
+        return model.add_edge(label_html(label, color) if label else '', st, source=src_cell, target=dst_cell)
+    pts = [tuple(p) for p in r['pts']]
+    ex = rel_on(src_box, pts[0]); en = rel_on(dst_box, pts[-1])
+    st = st.replace('edgeStyle=orthogonalEdgeStyle;', 'edgeStyle=none;') + 'exitPerimeter=0;entryPerimeter=0;'
+    segs = [math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(pts, pts[1:])]
+    tot = sum(segs) or 1.0; k = max(range(len(segs)), key=lambda i: segs[i])
+    pos = (sum(segs[:k]) + segs[k] / 2.0) / tot * 2.0 - 1.0
+    cid = model.add_edge(label_html(label, color) if label else '', st, source=src_cell, target=dst_cell,
+                         points=[(X(a), Y(b)) for (a, b) in pts[1:-1]], exit_xy=ex, entry_xy=en)
+    model.cells[-1]['geom']['lx'] = round(pos, 3)
+    return cid
+
 def label_html(text, color, size=5.6):
     return f'<div align="center"><font color="#{color}" style="font-size:{size * FS:.1f}px">{escape(text)}</font></div>'
 
@@ -441,9 +619,9 @@ def build_additions(model, render):
     eif = model.add_vertex(label_html('EIF', BLUE), new_box_style(BLUE),
                            X(ex), Y(ey), 16.5 * K, BH * K, cid='add_eif')
     placed['EIF'] = (ex, ey, 0)
+    eif_box = {'x': ex, 'y': ey, 'w': 16.5, 'h': BH}
     for tgt, lab in ((AF, 'N110'), (NEF, 'N111'), (UDM, 'N112'), (PCF, 'N113'), (SMF, 'N114')):
-        model.add_edge(label_html(lab, BLUE), new_edge_style(BLUE),
-                       source=eif, target=cell_of[tgt['id']])
+        routed_edge(model, lab, lab, BLUE, eif, cell_of[tgt['id']], eif_box, tgt)
     # EIF SBI caption
     cap = model.add_vertex(label_html('29.566 Neif (SBI)', BLUE),
                            'text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;',
@@ -461,43 +639,48 @@ def build_additions(model, render):
     adm = model.add_vertex(label_html('ADM', BLUE), new_box_style(BLUE),
                            X(dx), Y(dy), 17.0 * K, BH * K, cid='add_adm')
     placed['ADM'] = (dx, dy, 0)
-    model.add_edge(label_html('AIOT1', BLUE), new_edge_style(BLUE, dashed=True), source=dev, target=aiotf)
-    model.add_edge(label_html('AIOT2', BLUE), new_edge_style(BLUE), source=aiotf, target=cell_of[NGRAN['id']])
-    model.add_edge(label_html('AIOT3', BLUE), new_edge_style(BLUE), source=aiotf, target=cell_of[AMF['id']])
-    model.add_edge(label_html('AIOT4', BLUE), new_edge_style(BLUE), source=aiotf, target=cell_of[NEF['id']])
-    model.add_edge(label_html('AIOT5', BLUE), new_edge_style(BLUE), source=aiotf, target=cell_of[NRF['id']])
-    model.add_edge(label_html('AIOT6', BLUE), new_edge_style(BLUE), source=aiotf, target=adm)
-    model.add_edge(label_html('AIOT7', BLUE), new_edge_style(BLUE), source=adm, target=cell_of[UDR['id']])
-    model.add_edge(label_html('AIOT8', BLUE), new_edge_style(BLUE), source=adm, target=cell_of[NEF['id']])
+    dev_box = {'x': vx, 'y': vy, 'w': 16.5, 'h': BH}
+    aiotf_box = {'x': ax, 'y': ay, 'w': 16.5, 'h': BH}
+    adm_box = {'x': dx, 'y': dy, 'w': 17.0, 'h': BH}
+    routed_edge(model, 'AIOT1', 'AIOT1', BLUE, dev, aiotf, dev_box, aiotf_box, dashed=True)
+    routed_edge(model, 'AIOT2', 'AIOT2', BLUE, aiotf, cell_of[NGRAN['id']], aiotf_box, NGRAN)
+    routed_edge(model, 'AIOT3', 'AIOT3', BLUE, aiotf, cell_of[AMF['id']], aiotf_box, AMF)
+    routed_edge(model, 'AIOT4', 'AIOT4', BLUE, aiotf, cell_of[NEF['id']], aiotf_box, NEF)
+    routed_edge(model, 'AIOT6', 'AIOT6', BLUE, aiotf, adm, aiotf_box, adm_box)
+    routed_edge(model, 'AIOT7', 'AIOT7', BLUE, adm, cell_of[UDR['id']], adm_box, UDR)
+    routed_edge(model, 'AIOT8', 'AIOT8', BLUE, adm, cell_of[NEF['id']], adm_box, NEF)
     model.add_vertex(label_html('Naiotf (SBI) / Nadm (SBI)', BLUE),
                      'text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;',
                      X(dx), Y(dy + BH + 0.4), 17.0 * K, 3.4 * K, cid='add_aiot_cap')
     # --- NCR (Rel-18, green): near NG-RAN / AMF, avoiding the N3 user-plane line
-    r = place_box(BW, BH, (95, 240, 185, 300), [centre(NGRAN), centre(AMF)])
-    nx, ny = r[1], r[2]
+    # Position found by place_box((95, 240, 185, 300), [NG-RAN, AMF]) in the
+    # first composite and pinned since (see NOTES.md).
+    nx, ny = fixed_box(107.0, 277.0, BW)
+    r = (None, nx, ny, 0)
     ncr = model.add_vertex(label_html('NCR', GREEN), new_box_style(GREEN),
                            X(nx), Y(ny), BW * K, BH * K, cid='add_ncr')
     placed['NCR'] = (nx, ny, r[3])
-    model.add_edge(label_html('gNB control', GREEN), new_edge_style(GREEN),
-                   source=ncr, target=cell_of[NGRAN['id']])
+    routed_edge(model, 'gNB', 'gNB control', GREEN, ncr, cell_of[NGRAN['id']],
+                {'x': nx, 'y': ny, 'w': BW, 'h': BH}, NGRAN)
     # --- NR Femto (Rel-19, blue): east of NCR, same avoidance rules
-    r = place_box(BW, BH, (150, 240, 330, 300), [centre(NGRAN), centre(AMF), centre(PSAUPF)])
-    fx, fy = r[1], r[2]
+    # Pinned (first found by place_box((150, 240, 330, 300), [NG-RAN, AMF, PSA-UPF])).
+    fx, fy = fixed_box(150.0, 272.0, BW)
+    r = (None, fx, fy, 0)
     femto = model.add_vertex(label_html('NR Femto', BLUE), new_box_style(BLUE),
                              X(fx), Y(fy), BW * K, BH * K, cid='add_femto')
     placed['NR Femto'] = (fx, fy, r[3])
-    model.add_edge(label_html('N2', BLUE), new_edge_style(BLUE), source=femto, target=cell_of[AMF['id']])
-    model.add_edge(label_html('N3', BLUE), new_edge_style(BLUE), source=femto, target=cell_of[PSAUPF['id']])
+    femto_box = {'x': fx, 'y': fy, 'w': BW, 'h': BH}
+    routed_edge(model, 'N2', 'N2', BLUE, femto, cell_of[AMF['id']], femto_box, AMF)
+    routed_edge(model, 'N3', 'N3', BLUE, femto, cell_of[PSAUPF['id']], femto_box, PSAUPF)
     # --- Rel-18 long edges: N89 / N96 from TSCTSF panel item
-    model.add_edge(label_html('N89', GREEN), new_edge_style(GREEN),
-                   source=cell_of[TSCTSF['id']], target=cell_of[AMF['id']])
-    model.add_edge(label_html('N96', GREEN), new_edge_style(GREEN),
-                   source=cell_of[TSCTSF['id']], target=cell_of[NRF['id']])
+    routed_edge(model, 'N89', 'N89', GREEN, cell_of[TSCTSF['id']], cell_of[AMF['id']], TSCTSF, AMF)
     # --- Rel-19 long edges: N116 / N117 from SCP
-    model.add_edge(label_html('N116', BLUE), new_edge_style(BLUE),
-                   source=cell_of[SCP['id']], target=cell_of[NWDAF['id']])
-    model.add_edge(label_html('N117', BLUE), new_edge_style(BLUE),
-                   source=cell_of[SCP['id']], target=cell_of[DCCF['id']])
+    # --- N96 / AIOT5 (to NRF) and N116 / N117 (from SCP): NRF and SCP exist
+    # only inside the Annex G SCP deployment example, which every route into
+    # crosses original captions/arrows; drawn as matching named stubs instead.
+    stub_edges(model, {'TSCTSF': (cell_of[TSCTSF['id']], TSCTSF), 'NRF': (cell_of[NRF['id']], NRF),
+                       'AIOTF': (aiotf, aiotf_box), 'NWDAF': (cell_of[NWDAF['id']], NWDAF),
+                       'SCP': (cell_of[SCP['id']], SCP), 'DCCF': (cell_of[DCCF['id']], DCCF)})
     # --- N97 / N99 stubs on NSACF (green chips to the right/below)
     nsx, nsy = NSACF['x'] + NSACF['w'] + 1.2, NSACF['y']
     chip_style = ('text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;align=left;')
@@ -577,16 +760,23 @@ def validate(tree, label):
         texts.setdefault(cid, t)
     missing = []
     total = 0
+    norm = lambda z: re.sub(r'\s+', '', z)
+    items = []
     for s in shapes:
-        pt = plain_value(s).strip()
+        if s['kind'] == 'tbl':
+            for c in s['tbl']['cells']:
+                items.append((f"{s['id']}_r{c['r']}c{c['c']}", plain_value(c)))
+        else:
+            items.append((s['id'], plain_value(s)))
+    for sid, pt in items:
+        pt = pt.strip()
         if not pt:
             continue
         total += 1
-        ct = texts.get('o' + s['id'], '')
-        norm = lambda z: re.sub(r'\s+', '', z)
+        ct = texts.get('o' + sid, '')
         if norm(pt) != norm(ct):
-            missing.append((s['id'], pt[:50], ct[:50]))
-    print(f'[{label}] original text shapes: {total}, mismatched: {len(missing)}')
+            missing.append((sid, pt[:50], ct[:50]))
+    print(f'[{label}] original text items (shapes + table cells): {total}, mismatched: {len(missing)}')
     for m in missing[:15]:
         print('   MISMATCH', m)
     return len(missing)
@@ -633,8 +823,8 @@ def main():
            'Generated by script from the original pptx; do not edit positions by hand without updating the generator.')
     r1 = build_original(m1, jumps=False)
     t1 = m1.to_xml('Master (original, Rel-17)')
-    t1.write(BASE + '/composite-diagram-drawio-master.drawio', encoding='unicode', xml_declaration=True)
-    render_svg(r1, BASE + '/work/render_master.svg')
+    t1.write(MASTER_OUT, encoding='unicode', xml_declaration=True)
+    render_svg(r1, os.path.join(BUILD, 'render_master.svg'))
     validate(t1, 'master')
 
     # composite: + Rel-18/19 integrated
@@ -643,12 +833,12 @@ def main():
     header(m2, '3GPP Overall Architecture and Specifications — Composite (Release-19 cumulative)',
            'DRAFT composite: original figure (up to Release-17) + Release-18 (green) + Release-19 (blue) additions '
            'integrated into the figure. Based on TS 23.501 V19.9.0 / TS 23.369 V19.5.0 / TS 38.300.')
-    r2 = build_original(m2, jumps=True)
+    r2 = build_original(m2, jumps=False)  # jumps only on added edges
     placed = build_additions(m2, r2)
     footer_notes(m2)
     t2 = m2.to_xml('Composite (Rel-19 cumulative)')
-    t2.write(BASE + '/composite-diagram-drawio.drawio', encoding='unicode', xml_declaration=True)
-    render_svg(r2, BASE + '/work/render_composite.svg', additions_svg(placed))
+    t2.write(COMPOSITE_OUT, encoding='unicode', xml_declaration=True)
+    render_svg(r2, os.path.join(BUILD, 'render_composite.svg'), additions_svg(placed))
     validate(t2, 'composite')
     print('placed additions:', placed)
 
