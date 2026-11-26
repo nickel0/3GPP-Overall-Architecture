@@ -1,7 +1,8 @@
 # draw.io 版 設計メモ
 
-対象：`3gpp-overall-architecture.drawio`（原図 Release-17 までの draw.io 再現＝マスター）。
-派生版（Release-18／19 を統合した複合盤）は別 PR で追加し、その設計は同 PR で本メモに追記する。
+対象：
+- `3gpp-overall-architecture.drawio` — 原図 Release-17 までの draw.io 再現（マスター）
+- `3gpp-overall-architecture-rel19-composite.drawio` — マスターに Release-18／19 の差分を累積追加した全部入り最新版（複合盤）。設計は末尾の「複合盤」の節。
 
 ## 方式：pptx 機械抽出 → mxGraph XML 変換（手作業の描き写しなし）
 
@@ -38,6 +39,33 @@
 - draw.io 版はすべて `fontFamily=Arial` に統一。和文フォントの指定は再現していないが、和文の文字が無いので表示上の欠落は起きない。Noto Sans JP 指定だった欧文ラン 192件は Arial で表示されるため、字形・字幅がわずかに原図と異なる。
 - 書き出した PDF にはフォントがサブセット埋め込みされる（印刷所側でのフォント準備は不要）。Arial が無い環境では、計量互換の Liberation Sans に置き換わって埋め込まれる（字幅は Arial と同じため、改行位置・レイアウトは変わらない）。本リポジトリの `export/` の PDF も Liberation Sans 埋め込みで書き出している。
 - Arial そのものの字形で刷りたい場合は、Arial の入った環境（Windows／macOS の draw.io）で書き出し直す。
+
+## 複合盤（Release-18／19 の統合）
+
+主根拠：TS 23.501 V19.9.0、TS 23.369 V19.5.0、TS 38.300。**原図セルの移動はゼロ**（全セルが pptx 座標のまま）で、追加は新規セルのみ（ID は `add_` 接頭辞）。
+
+### 追加ボックス（6件、すべて本図内）
+
+| 要素 | 色 | 位置（スライド mm） | 置き場所 |
+|---|---|---|---|
+| AIoT Device | 青 | (328.3, 239.5) | 5GC 枠右辺と右側パネル群の間の縦ストリップ |
+| AIOTF | 青 | (328.3, 247.5) | 同ストリップ、AIoT Device の下 |
+| ADM | 青 | (328.3, 255.5) | 同ストリップ、AIOTF の下 |
+| EIF | 青 | (328.3, 266.5) | 同ストリップ最下段（PCF／SMF／AF に近い） |
+| NCR | 緑 | (107.0, 277.0) | AMF の南西、NG-RAN 枠の東隣 |
+| NR Femto | 青 | (150.0, 272.0) | AMF と NSACF の間、N3 線の北側 |
+
+### 追加線
+
+- **経路を引いた線（16件）**：EIF の N110／N111／N112／N113／N114、Ambient IoT の AIOT1（論理参照点のため破線）／AIOT2／AIOT3／AIOT4／AIOT6／AIOT7／AIOT8、Rel-18 の N89（TSCTSF–AMF）、NCR の gNB control、NR Femto の N2／N3。
+  経路は、原図の箱・文字・表を障害物、原図の線を「横切れるが沿っては走らない」コストとして扱う直交経路探索で下引きし、交差の多かった長距離線（AIOT2／AIOT3、N89 ほか）は waypoints を手で詰めた。結果は `tools/composite_routes.json` に固定し、生成時はこの経路をそのまま使う（draw.io の自動再ルーティングは使わない：`edgeStyle=none`＋端点固定）。
+- **遠隔参照点のスタブ（4組）**：N96（TSCTSF–NRF）、AIOT5（AIOTF–NRF）、N116（SCP–NWDAF）、N117（SCP–DCCF）。相手が図の反対側（Annex G の NRF／SCP の例示）にあり、引くと図を横断する長距離線になるため、原図自身の「to/from X」の書き方にならい、両端の箱から短い線を出して先端に同じ参照点名を置いた（読み手は名前で両端を結ぶ）。
+- N97／N99 は NSACF 右辺の短い線＋文字（other PLMN／same PLMN）、Nupf は PGW-U (PSA-)UPF 上辺の緑チップ。
+- 機能節レベルの追加（Rel-18：§5.20b–d／§5.28a／§5.35A／§5.43–5.46／eRedCap／DetNet／XR 等、Rel-19：§4.2.18／§5.48／§5.49／§5.51／§5.52／サイドリンク multi-hop／LP-WUS・WUR／SBFD／AI/ML 等）はページ下帯の Release-18／Release-19 additions 一覧に収録。
+
+### 色の意味
+
+原図では緑＝Rel-16・青＝Rel-17 として既に使われており、追加分の緑＝Rel-18・青＝Rel-19 と二重の意味になる。現状はページ下帯の Colour note で明示し、追加ボックスは白塗り＋色枠＋色文字で原図の NF と見分けられるようにしている。色相をずらす等の根本対処はレビューでの確認事項。
 
 ## 既知の残り
 
