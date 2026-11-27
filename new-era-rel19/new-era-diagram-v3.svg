@@ -1,0 +1,923 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1189mm" height="841mm" viewBox="0 0 2380 1680" font-family="'DejaVu Sans',sans-serif">
+<rect x="0" y="0" width="2380" height="1680" fill="#ffffff" stroke="none" stroke-width="1.1"/>
+<polygon points="312,622 742,622 742,400 1200,400 1200,118 1562,118 1562,400 2068,400 2068,1240 1830,1240 1830,1552 1010,1552 1010,1240 312,1240" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="312" y="118" width="430" height="504" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="312" y="107" width="147" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="321" y="123" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">NON-3GPP ACCESS</text>
+<rect x="742" y="118" width="458" height="282" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="742" y="107" width="113" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="751" y="123" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">AMBIENT IoT</text>
+<rect x="1562" y="118" width="506" height="282" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="1562" y="107" width="104" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1571" y="123" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">IMS — VoNR</text>
+<rect x="312" y="1240" width="248" height="312" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="312" y="1229" width="121" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="321" y="1245" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">UE / DEVICES</text>
+<rect x="560" y="1240" width="450" height="312" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="560" y="1229" width="44" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="569" y="1245" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">RAN</text>
+<rect x="1830" y="1240" width="238" height="312" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="1830" y="1229" width="130" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1839" y="1245" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">DN / EXTERNAL</text>
+<rect x="1562" y="880" width="268" height="672" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="1562" y="869" width="44" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1571" y="885" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">MBS</text>
+<rect x="1840" y="990" width="224" height="234" fill="none" stroke="#7d8a96" stroke-width="1.3"/>
+<rect x="1840" y="979" width="224" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1849" y="995" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">LI — LAWFUL INTERCEPTION</text>
+<rect x="1200" y="107" width="104" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="1209" y="123" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">CORE — 5GC</text>
+<rect x="312" y="611" width="104" height="23" fill="#ffffff" stroke="#7d8a96" stroke-width="1"/>
+<text x="321" y="627" font-size="13" fill="#37474f" text-anchor="start" font-weight="bold">CORE — 5GC</text>
+<text x="732" y="142" font-size="10" fill="#555555" text-anchor="end">23.501 §4.2.8</text>
+<rect x="332" y="948" width="390" height="278" fill="#ffffff" stroke="#141414" stroke-width="1.1" stroke-dasharray="7,4"/>
+<text x="527" y="972" font-size="10.5" fill="#555555" text-anchor="middle">SCP deployment — Model C / D (23.501 Annex G)</text>
+<text x="360" y="1086" font-size="11" fill="#141414" text-anchor="middle">NF</text>
+<text x="360" y="1102" font-size="11" fill="#141414" text-anchor="middle">(C)</text>
+<text x="694" y="1086" font-size="11" fill="#141414" text-anchor="middle">NF</text>
+<text x="694" y="1102" font-size="11" fill="#141414" text-anchor="middle">(P)</text>
+<line x1="378.0" y1="1094.0" x2="424.0" y2="1020.0" stroke="#141414" stroke-width="0.8" stroke-dasharray="5,3"/>
+<line x1="630.0" y1="1150.0" x2="676.0" y2="1102.0" stroke="#141414" stroke-width="0.8" stroke-dasharray="5,3"/>
+<rect x="578" y="1264" width="414" height="266" fill="#ffffff" stroke="#141414" stroke-width="1.6"/>
+<text x="598" y="1298" font-size="17" fill="#141414" text-anchor="start" font-weight="bold">NG-RAN</text>
+<rect x="797" y="1276" width="150" height="32" fill="#ffffff" stroke="#141414" stroke-width="1"/>
+<text x="872" y="1297" font-size="11.5" fill="#141414" text-anchor="middle">ng-eNB</text>
+<text x="872" y="1332" font-size="9" fill="#555555" text-anchor="middle">Xn-C / Xn-U (38.42x)</text>
+<text x="785" y="1522" font-size="9.5" fill="#555555" text-anchor="middle">NCR (Rel-18) · NR Femto (Rel-19) · IAB / MBSR / MWAB · NTN · AIoT reader</text>
+<ellipse cx="1949" cy="1405" rx="95" ry="46" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1949" y="1413" font-size="22" fill="#141414" text-anchor="middle" font-weight="bold">DN</text>
+<text x="1949" y="1474" font-size="10" fill="#555555" text-anchor="middle">Data Network</text>
+<rect x="345" y="163" width="120" height="44" fill="#ffffff" stroke="#141414" stroke-width="1.4" stroke-dasharray="7,4"/>
+<text x="405" y="190" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">UE</text>
+<rect x="523" y="160" width="190" height="40" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="618" y="184" font-size="11.5" fill="#141414" text-anchor="middle" font-weight="bold">Untrusted non-3GPP</text>
+<rect x="345" y="267" width="120" height="46" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="405" y="295" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">TNAP</text>
+<rect x="523" y="262" width="190" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="618" y="297" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">N3IWF</text>
+<text x="618" y="332" font-size="11" fill="#555555" text-anchor="middle">N3iwf</text>
+<rect x="345" y="377" width="120" height="46" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="405" y="405" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">TWAP</text>
+<rect x="523" y="372" width="190" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="618" y="407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">TNGF</text>
+<text x="618" y="442" font-size="11" fill="#555555" text-anchor="middle">Ntngf</text>
+<rect x="330" y="475" width="150" height="46" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="405" y="502" font-size="12.5" fill="#141414" text-anchor="middle" font-weight="bold">5G-RG / FN-RG</text>
+<rect x="523" y="470" width="190" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="618" y="505" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">TWIF</text>
+<text x="618" y="540" font-size="11" fill="#555555" text-anchor="middle">Ntwif</text>
+<rect x="523" y="559" width="190" height="46" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="618" y="589" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">W-AGF</text>
+<text x="618" y="619" font-size="11" fill="#555555" text-anchor="middle">Nwagf</text>
+<rect x="774" y="185" width="176" height="60" fill="#ffffff" stroke="#0d47a1" stroke-width="1.4"/>
+<text x="862" y="222" font-size="20" fill="#0d47a1" text-anchor="middle" font-weight="bold">AIOTF</text>
+<text x="862" y="259" font-size="11" fill="#555555" text-anchor="middle">Naiotf · 23.369</text>
+<rect x="992" y="185" width="176" height="60" fill="#ffffff" stroke="#0d47a1" stroke-width="1.4"/>
+<text x="1080" y="222" font-size="20" fill="#0d47a1" text-anchor="middle" font-weight="bold">ADM</text>
+<text x="1080" y="259" font-size="11" fill="#555555" text-anchor="middle">Nadm · 23.369</text>
+<rect x="1286" y="168" width="190" height="60" fill="#ffffff" stroke="#0d47a1" stroke-width="1.4"/>
+<text x="1381" y="205" font-size="20" fill="#0d47a1" text-anchor="middle" font-weight="bold">EIF</text>
+<text x="1381" y="242" font-size="11" fill="#555555" text-anchor="middle">29.566 Neif</text>
+<rect x="1286" y="288" width="190" height="60" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1381" y="325" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">SEPP</text>
+<text x="1381" y="362" font-size="11" fill="#555555" text-anchor="middle">29.573 · N32</text>
+<rect x="377" y="647" width="300" height="42" fill="#ffffff" stroke="#141414" stroke-width="1.4" stroke-dasharray="7,4"/>
+<text x="527" y="673" font-size="13" fill="#141414" text-anchor="middle" font-weight="bold">LCS Client</text>
+<rect x="340" y="730" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="425" y="765" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">GMLC</text>
+<text x="425" y="800" font-size="11" fill="#555555" text-anchor="middle">29.515 Ngmlc</text>
+<rect x="547" y="730" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="632" y="765" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">LMF</text>
+<text x="632" y="800" font-size="11" fill="#555555" text-anchor="middle">29.572 Nlmf</text>
+<rect x="340" y="850" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="425" y="885" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">CBCF</text>
+<text x="425" y="920" font-size="10" fill="#555555" text-anchor="middle">23.041 · PWS-IWF/CBCF</text>
+<rect x="547" y="850" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="632" y="885" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NSSF</text>
+<text x="632" y="920" font-size="11" fill="#555555" text-anchor="middle">29.531 Nnssf</text>
+<rect x="427" y="1011" width="200" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="527" y="1045" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NRF</text>
+<text x="527" y="1079" font-size="11" fill="#555555" text-anchor="middle">29.510 Nnrf</text>
+<rect x="427" y="1123" width="200" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="527" y="1157" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">SCP</text>
+<text x="527" y="1191" font-size="11" fill="#555555" text-anchor="middle">Nscp</text>
+<rect x="760" y="476" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="845" y="510" font-size="15" fill="#141414" text-anchor="middle" font-weight="bold">5G DDNMF</text>
+<text x="845" y="548" font-size="11" fill="#555555" text-anchor="middle">29.555 Nddnmf</text>
+<rect x="970" y="476" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="512" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">AANF</text>
+<text x="1055" y="548" font-size="11" fill="#555555" text-anchor="middle">29.535 Naanf_AKMA</text>
+<rect x="1180" y="476" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1265" y="512" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NEF</text>
+<text x="1265" y="548" font-size="11" fill="#555555" text-anchor="middle">29.522 Nnef</text>
+<rect x="1390" y="476" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1475" y="512" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">DCCF</text>
+<text x="1475" y="548" font-size="11" fill="#555555" text-anchor="middle">29.574 Ndccf</text>
+<rect x="1600" y="476" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1685" y="512" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">AF</text>
+<text x="1685" y="548" font-size="11" fill="#555555" text-anchor="middle">Naf</text>
+<rect x="1840" y="476" width="160" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1920" y="511" font-size="16" fill="#141414" text-anchor="middle" font-weight="bold">TSCTSF</text>
+<rect x="760" y="616" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="845" y="652" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">UCMF</text>
+<text x="845" y="688" font-size="11" fill="#555555" text-anchor="middle">29.673 Nucmf</text>
+<rect x="970" y="616" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="652" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">SMSF</text>
+<text x="1055" y="688" font-size="11" fill="#555555" text-anchor="middle">29.540 Nsmsf</text>
+<rect x="1390" y="616" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1475" y="652" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NWDAF</text>
+<text x="1475" y="688" font-size="11" fill="#555555" text-anchor="middle">29.520 Nnwdaf</text>
+<rect x="1600" y="616" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1685" y="652" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">ADRF</text>
+<text x="1685" y="688" font-size="11" fill="#555555" text-anchor="middle">29.575 Nadrf</text>
+<rect x="1840" y="616" width="160" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1920" y="650" font-size="15" fill="#141414" text-anchor="middle" font-weight="bold">TSN AF</text>
+<text x="1920" y="688" font-size="11" fill="#555555" text-anchor="middle">via NEF / PCF</text>
+<rect x="760" y="756" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="845" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">AUSF</text>
+<text x="845" y="828" font-size="11" fill="#555555" text-anchor="middle">29.509 Nausf</text>
+<rect x="953" y="746" width="204" height="78" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">UDM</text>
+<text x="1055" y="838" font-size="11" fill="#555555" text-anchor="middle">29.503 Nudm</text>
+<rect x="1180" y="756" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1265" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">UDR</text>
+<text x="1265" y="828" font-size="11" fill="#555555" text-anchor="middle">29.504, 29.505 Nudr</text>
+<rect x="1390" y="756" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1475" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MFAF</text>
+<text x="1475" y="828" font-size="11" fill="#555555" text-anchor="middle">29.576 Nmfaf</text>
+<rect x="1600" y="756" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1685" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">PCF</text>
+<text x="1685" y="828" font-size="11" fill="#555555" text-anchor="middle">29.507, 29.512 Npcf</text>
+<rect x="1840" y="756" width="160" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1920" y="792" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">BSF</text>
+<text x="1920" y="828" font-size="11" fill="#555555" text-anchor="middle">29.521 Nbsf</text>
+<rect x="760" y="896" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="845" y="932" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NSWOF</text>
+<rect x="970" y="896" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="932" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NSSAAF</text>
+<text x="1055" y="968" font-size="11" fill="#555555" text-anchor="middle">29.526 Nnssaaf</text>
+<rect x="1180" y="896" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1265" y="932" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">UDSF</text>
+<text x="1265" y="968" font-size="11" fill="#555555" text-anchor="middle">Nudsf</text>
+<rect x="1390" y="896" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1475" y="932" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">EASDF</text>
+<text x="1475" y="968" font-size="11" fill="#555555" text-anchor="middle">29.556 Neasdf</text>
+<rect x="1840" y="896" width="160" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1920" y="932" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">CHF</text>
+<text x="1920" y="968" font-size="11" fill="#555555" text-anchor="middle">29.594 Nchf</text>
+<rect x="970" y="1036" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="1071" font-size="16" fill="#141414" text-anchor="middle" font-weight="bold">5G-EIR</text>
+<text x="1055" y="1108" font-size="11" fill="#555555" text-anchor="middle">29.511 N5g-eir</text>
+<rect x="738" y="1140" width="214" height="80" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="845" y="1189" font-size="24" fill="#141414" text-anchor="middle" font-weight="bold">AMF</text>
+<text x="845" y="1234" font-size="11" fill="#555555" text-anchor="middle">29.518 Namf</text>
+<rect x="970" y="1151" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1055" y="1187" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">NSACF</text>
+<text x="1055" y="1223" font-size="11" fill="#555555" text-anchor="middle">29.536 Nnsacf</text>
+<rect x="1180" y="1151" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1265" y="1187" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">I-SMF</text>
+<text x="1265" y="1223" font-size="11" fill="#555555" text-anchor="middle">29.502 Nsmf</text>
+<rect x="1390" y="1151" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1475" y="1187" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">SMF</text>
+<text x="1475" y="1223" font-size="11" fill="#555555" text-anchor="middle">29.502 Nsmf</text>
+<rect x="1611" y="940" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1696" y="975" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MBSF</text>
+<text x="1696" y="1010" font-size="11" fill="#555555" text-anchor="middle">Nmbsf · 23.247</text>
+<rect x="1611" y="1080" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1696" y="1115" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MB-SMF</text>
+<text x="1696" y="1150" font-size="11" fill="#555555" text-anchor="middle">Nmbsmf · 23.247</text>
+<rect x="1611" y="1220" width="170" height="56" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1696" y="1255" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MBSTF</text>
+<rect x="1611" y="1369" width="170" height="62" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1696" y="1407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MB-UPF</text>
+<rect x="1857" y="1004" width="190" height="60" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1041" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">ADMF</text>
+<rect x="1867" y="1081" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1117" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MDF2</text>
+<rect x="1867" y="1157" width="170" height="58" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1952" y="1193" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">MDF3</text>
+<rect x="1105" y="1369" width="190" height="62" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1200" y="1407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">I-UPF</text>
+<text x="1200" y="1445" font-size="10" fill="#1b7a33" text-anchor="middle">29.564 Nupf (Rel-18)</text>
+<rect x="1355" y="1369" width="190" height="62" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1450" y="1407" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">PSA-UPF</text>
+<text x="1450" y="1445" font-size="10" fill="#1b7a33" text-anchor="middle">29.564 Nupf (Rel-18)</text>
+<rect x="1365" y="1472" width="170" height="40" fill="#ffffff" stroke="#141414" stroke-width="1.4" stroke-dasharray="7,4"/>
+<text x="1450" y="1490" font-size="11.5" fill="#141414" text-anchor="middle" font-weight="bold">PSA UPF</text>
+<text x="1450" y="1505" font-size="11.5" fill="#141414" text-anchor="middle" font-weight="bold">(5G LAN)</text>
+<rect x="1578" y="181" width="165" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1660" y="214" font-size="16" fill="#141414" text-anchor="middle" font-weight="bold">P-CSCF</text>
+<rect x="1852" y="181" width="165" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1935" y="215" font-size="20" fill="#141414" text-anchor="middle" font-weight="bold">AS</text>
+<rect x="1578" y="295" width="165" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1660" y="328" font-size="16" fill="#141414" text-anchor="middle" font-weight="bold">I-CSCF</text>
+<rect x="1852" y="295" width="165" height="54" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="1935" y="328" font-size="16" fill="#141414" text-anchor="middle" font-weight="bold">S-CSCF</text>
+<rect x="351" y="1311" width="170" height="74" fill="#ffffff" stroke="#141414" stroke-width="1.4"/>
+<text x="436" y="1357" font-size="25" fill="#141414" text-anchor="middle" font-weight="bold">UE</text>
+<rect x="351" y="1455" width="170" height="54" fill="#ffffff" stroke="#0d47a1" stroke-width="1.4"/>
+<text x="436" y="1487" font-size="14.5" fill="#0d47a1" text-anchor="middle" font-weight="bold">AIoT Device</text>
+<rect x="612" y="1347" width="132" height="50" fill="#ffffff" stroke="#141414" stroke-width="1.2"/>
+<text x="678" y="1378" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">DU</text>
+<rect x="797" y="1347" width="150" height="50" fill="#ffffff" stroke="#141414" stroke-width="1.2"/>
+<text x="872" y="1378" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">CU-CP</text>
+<rect x="612" y="1453" width="132" height="50" fill="#ffffff" stroke="#141414" stroke-width="1.2"/>
+<text x="678" y="1484" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">DU</text>
+<rect x="797" y="1453" width="150" height="50" fill="#ffffff" stroke="#141414" stroke-width="1.2"/>
+<text x="872" y="1484" font-size="14" fill="#141414" text-anchor="middle" font-weight="bold">CU-UP</text>
+<rect x="813" y="1195" width="64" height="22" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
+<text x="845" y="1210" font-size="9.5" fill="#141414" text-anchor="middle">SEAF</text>
+<rect x="992" y="794" width="60" height="22" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
+<text x="1022" y="809" font-size="9.5" fill="#141414" text-anchor="middle">ARPF</text>
+<rect x="1058" y="794" width="60" height="22" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
+<text x="1088" y="809" font-size="9.5" fill="#141414" text-anchor="middle">SIDF</text>
+<rect x="1897" y="1046" width="110" height="16" fill="#ffffff" stroke="#141414" stroke-width="0.9"/>
+<text x="1952" y="1058" font-size="9" fill="#141414" text-anchor="middle">LICF · LIPF</text>
+<text x="746" y="1158" font-size="8.5" fill="#555555" text-anchor="start">IRI-POI</text>
+<text x="1398" y="1169" font-size="8.5" fill="#555555" text-anchor="start">IRI-POI · CC-TF</text>
+<text x="1113" y="1387" font-size="8.5" fill="#555555" text-anchor="start">CC-POI</text>
+<text x="1363" y="1387" font-size="8.5" fill="#555555" text-anchor="start">CC-POI</text>
+<line x1="523.0" y1="1312.3" x2="742.8" y2="1222.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="822.3" y1="1262.0" x2="833.4" y2="1222.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="523.0" y1="1360.2" x2="576.0" y2="1367.7" stroke="#141414" stroke-width="2.2"/>
+<line x1="994.0" y1="1398.5" x2="1103.0" y2="1399.3" stroke="#141414" stroke-width="3.2"/>
+<line x1="1297.0" y1="1400.0" x2="1353.0" y2="1400.0" stroke="#141414" stroke-width="3.2"/>
+<line x1="1547.0" y1="1401.0" x2="1852.0" y2="1404.0" stroke="#141414" stroke-width="3.2"/>
+<line x1="1436.2" y1="1211.0" x2="1241.2" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1471.5" y1="1211.0" x2="1453.8" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1255.8" y1="1211.0" x2="1209.8" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1450.0" y1="1433.0" x2="1450.0" y2="1470.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1033.2" y1="826.0" x2="867.3" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1098.6" y1="826.0" x2="1442.0" y2="1149.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1180.0" x2="1388.0" y2="1180.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="845.0" y1="1138.0" x2="845.0" y2="816.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="951.0" y1="785.0" x2="932.0" y2="785.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1619.1" y1="816.0" x2="934.3" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1388.0" y1="1180.0" x2="1352.0" y2="1180.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="921.7" y1="1138.0" x2="998.4" y2="1096.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="861.5" y1="1138.0" x2="1042.8" y2="676.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1055.0" y1="676.0" x2="1055.0" y2="744.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="815.4" y1="1138.0" x2="653.2" y2="908.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1638.5" y1="754.0" x2="1521.5" y2="676.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1737.0" y1="816.0" x2="1868.0" y2="894.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1274.6" y1="536.0" x2="1465.4" y2="1149.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1638.5" y1="754.0" x2="1311.5" y2="536.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1352.0" y1="505.0" x2="1598.0" y2="505.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="719.0" y1="854.0" x2="1388.0" y2="669.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1159.0" y1="785.0" x2="1178.0" y2="785.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1598.0" y1="785.0" x2="1352.0" y2="785.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1265.0" y1="536.0" x2="1265.0" y2="754.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1529.1" y1="1149.0" x2="1865.9" y2="956.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1154.1" x2="1838.0" y2="944.5" stroke="#141414" stroke-width="1.1"/>
+<line x1="786.6" y1="1138.0" x2="466.7" y2="908.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="871.1" y1="1138.0" x2="1245.7" y2="536.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1241.8" y1="536.0" x2="1085.8" y2="744.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="845.0" y1="1138.0" x2="845.0" y2="676.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1178.0" y1="534.0" x2="932.0" y2="616.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1598.0" y1="519.5" x2="932.0" y2="630.5" stroke="#141414" stroke-width="1.1"/>
+<line x1="879.6" y1="1138.0" x2="1029.5" y2="956.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1055.0" y1="826.0" x2="1055.0" y2="894.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="845.0" y1="816.0" x2="845.0" y2="894.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1180.0" x2="968.0" y2="1180.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1388.0" y1="1180.0" x2="1142.0" y2="1180.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1064.6" y1="1149.0" x2="1255.4" y2="536.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="891.5" y1="816.0" x2="1008.5" y2="894.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1894.0" y1="536.0" x2="1711.0" y2="754.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1838.0" y1="505.0" x2="1352.0" y2="505.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1838.0" y1="505.0" x2="1772.0" y2="505.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1838.0" y1="531.5" x2="1159.0" y2="751.3" stroke="#141414" stroke-width="1.1"/>
+<line x1="1475.0" y1="1149.0" x2="1475.0" y2="956.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1290.5" y1="1149.0" x2="1449.5" y2="956.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1685.0" y1="754.0" x2="1685.0" y2="536.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1491.5" y1="1149.0" x2="1668.5" y2="816.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1170.8" x2="1609.0" y2="1115.4" stroke="#141414" stroke-width="1.1"/>
+<line x1="1870.6" y1="536.0" x2="911.9" y2="1138.0" stroke="#1b7a33" stroke-width="1.1"/>
+<line x1="1839.0" y1="536.0" x2="602.8" y2="1009.0" stroke="#1b7a33" stroke-width="1.1"/>
+<line x1="1412.7" y1="230.0" x2="1654.3" y2="474.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1368.9" y1="230.0" x2="1276.7" y2="474.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1363.2" y1="230.0" x2="1077.8" y2="744.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1397.6" y1="230.0" x2="1668.9" y2="754.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1384.1" y1="230.0" x2="1472.0" y2="1149.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="581.4" y1="1121.0" x2="1416.8" y2="676.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="569.6" y1="1121.0" x2="1429.4" y2="536.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="823.8" y1="1138.0" x2="647.1" y2="788.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="454.9" y1="788.0" x2="803.2" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1178.0" y1="531.2" x2="512.0" y2="731.8" stroke="#141414" stroke-width="1.1"/>
+<line x1="512.0" y1="761.7" x2="951.0" y2="780.5" stroke="#141414" stroke-width="1.1"/>
+<line x1="512.0" y1="758.0" x2="545.0" y2="758.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="500.9" y1="691.0" x2="459.0" y2="728.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1031.8" y1="536.0" x2="868.2" y2="754.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1142.0" y1="505.0" x2="1598.0" y2="505.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1142.0" y1="505.0" x2="1178.0" y2="505.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1894.0" y1="754.0" x2="1711.0" y2="536.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1024.2" y1="744.0" x2="868.2" y2="536.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1598.0" y1="756.0" x2="932.0" y2="534.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1475.0" y1="614.0" x2="1475.0" y2="536.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1521.5" y1="536.0" x2="1638.5" y2="614.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1562.0" y1="645.0" x2="1598.0" y2="645.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1475.0" y1="676.0" x2="1475.0" y2="754.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="527.0" y1="1067.0" x2="527.0" y2="1121.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="445.8" y1="1453.0" x2="851.2" y2="247.0" stroke="#0d47a1" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="793.8" y1="1262.0" x2="859.9" y2="247.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="861.4" y1="247.0" x2="845.7" y2="1138.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="906.5" y1="247.0" x2="1221.9" y2="474.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="849.0" y1="247.0" x2="538.8" y2="1009.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="952.0" y1="215.0" x2="990.0" y2="215.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1090.4" y1="247.0" x2="1254.9" y2="754.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1100.4" y1="247.0" x2="1245.2" y2="474.0" stroke="#0d47a1" stroke-width="1.1"/>
+<line x1="1696.0" y1="1138.0" x2="1696.0" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="994.0" y1="1397.7" x2="1609.0" y2="1399.7" stroke="#141414" stroke-width="1.1"/>
+<line x1="1783.0" y1="1401.7" x2="1852.0" y2="1403.1" stroke="#141414" stroke-width="1.1"/>
+<line x1="1668.1" y1="938.0" x2="1293.9" y2="536.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1696.0" y1="1078.0" x2="1696.0" y2="998.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1685.7" y1="536.0" x2="1695.3" y2="938.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1952.0" y1="1066.0" x2="1952.0" y2="1079.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1952.0" y1="1141.0" x2="1952.0" y2="1155.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1855.0" y1="1046.8" x2="954.0" y2="1165.6" stroke="#141414" stroke-width="1.1"/>
+<line x1="1855.0" y1="1063.7" x2="1562.0" y2="1153.4" stroke="#141414" stroke-width="1.1"/>
+<line x1="1562.0" y1="1167.2" x2="1865.0" y2="1122.8" stroke="#141414" stroke-width="1.1"/>
+<line x1="954.0" y1="1173.1" x2="1865.0" y2="1115.5" stroke="#141414" stroke-width="1.1"/>
+<line x1="1527.4" y1="1367.0" x2="1879.3" y2="1217.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="1471.5" y1="1211.0" x2="1453.8" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="477.9" y1="1309.0" x2="1628.9" y2="237.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1660.0" y1="237.0" x2="1660.0" y2="293.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1744.5" y1="322.0" x2="1850.5" y2="322.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="1935.0" y1="293.0" x2="1935.0" y2="237.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="467.0" y1="183.5" x2="521.0" y2="182.3" stroke="#141414" stroke-width="1.1"/>
+<line x1="618.0" y1="202.0" x2="618.0" y2="260.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="453.7" y1="209.0" x2="557.1" y2="260.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="405.0" y1="209.0" x2="405.0" y2="265.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="428.8" y1="209.0" x2="588.3" y2="370.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="405.0" y1="209.0" x2="405.0" y2="375.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="468.4" y1="513.0" x2="554.6" y2="547.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="468.4" y1="533.0" x2="554.6" y2="567.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="625.7" y1="320.0" x2="834.3" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="633.7" y1="320.0" x2="1182.7" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="626.7" y1="430.0" x2="832.8" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="635.5" y1="430.0" x2="1180.8" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="628.0" y1="528.0" x2="831.0" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="637.4" y1="528.0" x2="1178.7" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="627.5" y1="607.0" x2="829.1" y2="1138.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="635.8" y1="607.0" x2="1176.5" y2="1367.0" stroke="#141414" stroke-width="1.1"/>
+<line x1="746.0" y1="1372.0" x2="795.0" y2="1372.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="746.0" y1="1478.0" x2="795.0" y2="1478.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="872.0" y1="1399.0" x2="872.0" y2="1451.0" stroke="#141414" stroke-width="0.8"/>
+<line x1="826.1" y1="1138.0" x2="791.0" y2="1060.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1475.0" y1="1149.0" x2="1475.0" y2="1091.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1265.0" y1="956.0" x2="1265.0" y2="1008.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1737.7" y1="754.0" x2="1804.0" y2="715.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="430.3" y1="1009.0" x2="372.3" y2="991.6" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="632.0" y1="848.0" x2="632.0" y2="800.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1478.0" y1="318.0" x2="1544.0" y2="318.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1274.3" y1="1211.0" x2="1290.8" y2="1266.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="855.5" y1="1222.0" x2="865.5" y2="1262.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1772.0" y1="815.5" x2="1834.0" y2="837.2" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1042.6" y1="1211.0" x2="1023.4" y2="1259.0" stroke="#1b7a33" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="1067.4" y1="1211.0" x2="1086.6" y2="1259.0" stroke="#1b7a33" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="845.0" y1="894.0" x2="845.0" y2="846.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2049.0" y1="1034.0" x2="2067.0" y2="1034.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2039.0" y1="1110.0" x2="2057.0" y2="1110.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<line x1="2039.0" y1="1186.0" x2="2057.0" y2="1186.0" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<rect x="604" y="1265" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="615" y="1278" font-size="11" fill="#141414" text-anchor="middle">N1</text>
+<text x="615" y="1296" font-size="9" fill="#555555" text-anchor="middle">24.501 NAS</text>
+<rect x="772" y="1233" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="784" y="1246" font-size="11" fill="#141414" text-anchor="middle">N2</text>
+<text x="784" y="1264" font-size="9" fill="#555555" text-anchor="middle">38.413 NGAP</text>
+<rect x="528" y="1355" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="550" y="1368" font-size="11" fill="#141414" text-anchor="middle">NR-Uu</text>
+<rect x="1037" y="1390" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1048" y="1403" font-size="11" fill="#141414" text-anchor="middle">N3</text>
+<text x="1048" y="1421" font-size="9" fill="#555555" text-anchor="middle">29.281 GTP-U</text>
+<rect x="1314" y="1391" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1325" y="1404" font-size="11" fill="#141414" text-anchor="middle">N9</text>
+<text x="1325" y="1422" font-size="9" fill="#555555" text-anchor="middle">29.281 GTP-U</text>
+<rect x="1795" y="1395" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1806" y="1408" font-size="11" fill="#141414" text-anchor="middle">N6</text>
+<rect x="1327" y="1280" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1339" y="1293" font-size="11" fill="#141414" text-anchor="middle">N4</text>
+<rect x="1454" y="1257" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1465" y="1270" font-size="11" fill="#141414" text-anchor="middle">N4</text>
+<text x="1465" y="1288" font-size="9" fill="#555555" text-anchor="middle">29.244 PFCP</text>
+<rect x="1226" y="1264" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1237" y="1277" font-size="11" fill="#141414" text-anchor="middle">N4</text>
+<rect x="1435" y="1442" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1450" y="1456" font-size="11" fill="#141414" text-anchor="middle">N19</text>
+<rect x="939" y="973" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="950" y="986" font-size="11" fill="#141414" text-anchor="middle">N8</text>
+<rect x="1255" y="978" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1270" y="992" font-size="11" fill="#141414" text-anchor="middle">N10</text>
+<rect x="1301" y="1171" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1316" y="1184" font-size="11" fill="#141414" text-anchor="middle">N11</text>
+<rect x="830" y="968" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="845" y="981" font-size="11" fill="#141414" text-anchor="middle">N12</text>
+<rect x="927" y="776" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="942" y="789" font-size="11" fill="#141414" text-anchor="middle">N13</text>
+<rect x="1262" y="968" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1277" y="981" font-size="11" fill="#141414" text-anchor="middle">N15</text>
+<rect x="1352" y="1151" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1370" y="1164" font-size="11" fill="#141414" text-anchor="middle">N16a</text>
+<rect x="945" y="1108" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="960" y="1121" font-size="11" fill="#141414" text-anchor="middle">N17</text>
+<rect x="937" y="898" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="952" y="911" font-size="11" fill="#141414" text-anchor="middle">N20</text>
+<rect x="1040" y="701" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1055" y="714" font-size="11" fill="#141414" text-anchor="middle">N21</text>
+<rect x="719" y="1014" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="734" y="1027" font-size="11" fill="#141414" text-anchor="middle">N22</text>
+<rect x="1565" y="706" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1580" y="719" font-size="11" fill="#141414" text-anchor="middle">N23</text>
+<rect x="1788" y="846" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1802" y="859" font-size="11" fill="#141414" text-anchor="middle">N28</text>
+<rect x="1355" y="834" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1370" y="846" font-size="11" fill="#141414" text-anchor="middle">N29</text>
+<rect x="1526" y="680" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1540" y="693" font-size="11" fill="#141414" text-anchor="middle">N30</text>
+<rect x="1399" y="496" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1414" y="509" font-size="11" fill="#141414" text-anchor="middle">N33</text>
+<rect x="851" y="804" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="866" y="817" font-size="11" fill="#141414" text-anchor="middle">N34</text>
+<rect x="1154" y="776" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1168" y="789" font-size="11" fill="#141414" text-anchor="middle">N35</text>
+<rect x="1522" y="776" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1536" y="789" font-size="11" fill="#141414" text-anchor="middle">N36</text>
+<rect x="1250" y="636" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1265" y="649" font-size="11" fill="#141414" text-anchor="middle">N37</text>
+<rect x="1723" y="1020" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1738" y="1033" font-size="11" fill="#141414" text-anchor="middle">N40</text>
+<rect x="1381" y="1040" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1396" y="1053" font-size="11" fill="#141414" text-anchor="middle">N41</text>
+<rect x="612" y="1014" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="627" y="1027" font-size="11" fill="#141414" text-anchor="middle">N50</text>
+<rect x="1118" y="708" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1133" y="721" font-size="11" fill="#141414" text-anchor="middle">N51</text>
+<rect x="1149" y="631" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1164" y="644" font-size="11" fill="#141414" text-anchor="middle">N52</text>
+<rect x="830" y="843" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="845" y="856" font-size="11" fill="#141414" text-anchor="middle">N55</text>
+<rect x="1040" y="566" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1055" y="579" font-size="11" fill="#141414" text-anchor="middle">N56</text>
+<rect x="1250" y="566" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1265" y="579" font-size="11" fill="#141414" text-anchor="middle">N57</text>
+<rect x="940" y="1038" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="955" y="1051" font-size="11" fill="#141414" text-anchor="middle">N58</text>
+<rect x="1040" y="851" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1055" y="864" font-size="11" fill="#141414" text-anchor="middle">N59</text>
+<rect x="830" y="846" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="845" y="859" font-size="11" fill="#141414" text-anchor="middle">N60</text>
+<rect x="946" y="1195" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="961" y="1208" font-size="11" fill="#141414" text-anchor="middle">N80</text>
+<rect x="1312" y="1171" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1326" y="1184" font-size="11" fill="#141414" text-anchor="middle">N81</text>
+<rect x="1145" y="834" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1160" y="846" font-size="11" fill="#141414" text-anchor="middle">N82</text>
+<rect x="935" y="846" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="950" y="859" font-size="11" fill="#141414" text-anchor="middle">N83</text>
+<rect x="1824" y="592" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1839" y="605" font-size="11" fill="#141414" text-anchor="middle">N84</text>
+<rect x="1580" y="496" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1595" y="509" font-size="11" fill="#141414" text-anchor="middle">N85</text>
+<rect x="1790" y="496" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1805" y="509" font-size="11" fill="#141414" text-anchor="middle">N86</text>
+<rect x="1619" y="588" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1634" y="601" font-size="11" fill="#141414" text-anchor="middle">N87</text>
+<rect x="1460" y="1044" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1475" y="1056" font-size="11" fill="#141414" text-anchor="middle">N88</text>
+<rect x="1352" y="1044" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1370" y="1056" font-size="11" fill="#141414" text-anchor="middle">N88a</text>
+<rect x="1674" y="690" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1685" y="704" font-size="11" fill="#141414" text-anchor="middle">N5</text>
+<rect x="1569" y="974" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1580" y="986" font-size="11" fill="#141414" text-anchor="middle">N7</text>
+<rect x="1260" y="1134" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1282" y="1147" font-size="11" fill="#141414" text-anchor="middle">N11mb</text>
+<rect x="1376" y="828" width="30" height="18" fill="#ffffff" stroke="#1b7a33" stroke-width="0.8"/>
+<text x="1391" y="841" font-size="11" fill="#1b7a33" text-anchor="middle">N89</text>
+<rect x="1144" y="787" width="30" height="18" fill="#ffffff" stroke="#1b7a33" stroke-width="0.8"/>
+<text x="1159" y="800" font-size="11" fill="#1b7a33" text-anchor="middle">N96</text>
+<rect x="1515" y="343" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1533" y="356" font-size="11" fill="#0d47a1" text-anchor="middle">N110</text>
+<rect x="1305" y="343" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1323" y="356" font-size="11" fill="#0d47a1" text-anchor="middle">N111</text>
+<rect x="1245" y="401" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1263" y="414" font-size="11" fill="#0d47a1" text-anchor="middle">N112</text>
+<rect x="1461" y="378" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1479" y="391" font-size="11" fill="#0d47a1" text-anchor="middle">N113</text>
+<rect x="1410" y="706" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1428" y="720" font-size="11" fill="#0d47a1" text-anchor="middle">N114</text>
+<rect x="814" y="978" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="832" y="992" font-size="11" fill="#0d47a1" text-anchor="middle">N116</text>
+<rect x="740" y="983" width="37" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="759" y="996" font-size="11" fill="#0d47a1" text-anchor="middle">N117</text>
+<rect x="721" y="954" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="735" y="967" font-size="11" fill="#141414" text-anchor="middle">NL1</text>
+<rect x="614" y="954" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="629" y="967" font-size="11" fill="#141414" text-anchor="middle">NL2</text>
+<rect x="963" y="582" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="978" y="595" font-size="11" fill="#141414" text-anchor="middle">NL5</text>
+<rect x="717" y="762" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="732" y="775" font-size="11" fill="#141414" text-anchor="middle">NL6</text>
+<rect x="514" y="749" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="528" y="762" font-size="11" fill="#141414" text-anchor="middle">NL7</text>
+<rect x="469" y="700" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="480" y="714" font-size="11" fill="#141414" text-anchor="middle">Le</text>
+<rect x="935" y="636" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="950" y="649" font-size="11" fill="#141414" text-anchor="middle">N61</text>
+<rect x="1203" y="479" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1218" y="492" font-size="11" fill="#141414" text-anchor="middle">N62</text>
+<rect x="1145" y="513" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1160" y="526" font-size="11" fill="#141414" text-anchor="middle">N63</text>
+<rect x="1788" y="636" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1802" y="649" font-size="11" fill="#141414" text-anchor="middle">N66</text>
+<rect x="928" y="631" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="946" y="644" font-size="11" fill="#141414" text-anchor="middle">Npc4</text>
+<rect x="1327" y="663" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1345" y="676" font-size="11" fill="#141414" text-anchor="middle">Npc8</text>
+<rect x="1453" y="566" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1475" y="579" font-size="11" fill="#141414" text-anchor="middle">Ndccf</text>
+<rect x="1558" y="566" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1580" y="579" font-size="11" fill="#141414" text-anchor="middle">Nadrf</text>
+<rect x="1558" y="636" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1580" y="649" font-size="11" fill="#141414" text-anchor="middle">Nadrf</text>
+<rect x="1453" y="706" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1475" y="719" font-size="11" fill="#141414" text-anchor="middle">Nmfaf</text>
+<rect x="509" y="1085" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="527" y="1098" font-size="11" fill="#141414" text-anchor="middle">Nnrf</text>
+<rect x="700" y="624" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="721" y="637" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT1</text>
+<rect x="812" y="644" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="833" y="657" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT2</text>
+<rect x="831" y="728" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="853" y="741" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT3</text>
+<rect x="1042" y="352" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1064" y="364" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT4</text>
+<rect x="672" y="619" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="694" y="632" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT5</text>
+<rect x="949" y="206" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="971" y="219" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT6</text>
+<rect x="1151" y="492" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1173" y="504" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT7</text>
+<rect x="1151" y="352" width="44" height="18" fill="#ffffff" stroke="#0d47a1" stroke-width="0.8"/>
+<text x="1173" y="364" font-size="11" fill="#0d47a1" text-anchor="middle">AIOT8</text>
+<rect x="1678" y="1308" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1696" y="1321" font-size="11" fill="#141414" text-anchor="middle">N4mb</text>
+<rect x="1314" y="1390" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1332" y="1403" font-size="11" fill="#141414" text-anchor="middle">N3mb</text>
+<rect x="1799" y="1393" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1818" y="1406" font-size="11" fill="#141414" text-anchor="middle">N6mb</text>
+<rect x="1463" y="728" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1481" y="741" font-size="11" fill="#141414" text-anchor="middle">Nmb8</text>
+<rect x="1678" y="1029" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1696" y="1042" font-size="11" fill="#141414" text-anchor="middle">Nmb5</text>
+<rect x="1675" y="688" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1690" y="701" font-size="11" fill="#141414" text-anchor="middle">MB2</text>
+<rect x="1930" y="1064" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1952" y="1076" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1927" y="1139" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1952" y="1152" font-size="11" fill="#141414" text-anchor="middle">LI_MDF</text>
+<rect x="1383" y="1097" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1404" y="1110" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1781" y="1071" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1802" y="1084" font-size="11" fill="#141414" text-anchor="middle">LI_X1</text>
+<rect x="1692" y="1142" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1714" y="1155" font-size="11" fill="#141414" text-anchor="middle">LI_X2</text>
+<rect x="1497" y="1128" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1519" y="1141" font-size="11" fill="#141414" text-anchor="middle">LI_X2</text>
+<rect x="1682" y="1283" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1703" y="1296" font-size="11" fill="#141414" text-anchor="middle">LI_X3</text>
+<rect x="1438" y="1324" width="44" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1459" y="1337" font-size="11" fill="#141414" text-anchor="middle">LI_T3</text>
+<rect x="1100" y="710" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1111" y="723" font-size="11" fill="#141414" text-anchor="middle">Gm</text>
+<rect x="1649" y="256" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1660" y="269" font-size="11" fill="#141414" text-anchor="middle">Mw</text>
+<rect x="1786" y="313" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1798" y="326" font-size="11" fill="#141414" text-anchor="middle">Mw</text>
+<rect x="1920" y="256" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1935" y="269" font-size="11" fill="#141414" text-anchor="middle">ISC</text>
+<rect x="483" y="174" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="494" y="187" font-size="11" fill="#141414" text-anchor="middle">Y1</text>
+<rect x="607" y="222" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="618" y="235" font-size="11" fill="#141414" text-anchor="middle">Y2</text>
+<rect x="491" y="226" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="505" y="238" font-size="11" fill="#141414" text-anchor="middle">NWu</text>
+<rect x="394" y="228" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="405" y="241" font-size="11" fill="#141414" text-anchor="middle">Yt</text>
+<rect x="478" y="264" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="493" y="277" font-size="11" fill="#141414" text-anchor="middle">NWt</text>
+<rect x="390" y="258" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="405" y="271" font-size="11" fill="#141414" text-anchor="middle">Yt'</text>
+<rect x="500" y="521" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="512" y="534" font-size="11" fill="#141414" text-anchor="middle">Y4</text>
+<rect x="500" y="541" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="512" y="554" font-size="11" fill="#141414" text-anchor="middle">Y5</text>
+<rect x="677" y="556" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="688" y="569" font-size="11" fill="#141414" text-anchor="middle">N2</text>
+<rect x="924" y="887" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="936" y="900" font-size="11" fill="#141414" text-anchor="middle">N3</text>
+<rect x="687" y="669" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="699" y="682" font-size="11" fill="#141414" text-anchor="middle">N2</text>
+<rect x="951" y="983" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="963" y="996" font-size="11" fill="#141414" text-anchor="middle">N3</text>
+<rect x="698" y="763" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="709" y="776" font-size="11" fill="#141414" text-anchor="middle">N2</text>
+<rect x="978" y="1064" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="989" y="1077" font-size="11" fill="#141414" text-anchor="middle">N3</text>
+<rect x="707" y="837" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="718" y="850" font-size="11" fill="#141414" text-anchor="middle">N2</text>
+<rect x="1003" y="1130" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1014" y="1143" font-size="11" fill="#141414" text-anchor="middle">N3</text>
+<rect x="752" y="1363" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="770" y="1376" font-size="11" fill="#141414" text-anchor="middle">F1-C</text>
+<rect x="752" y="1469" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="770" y="1482" font-size="11" fill="#141414" text-anchor="middle">F1-U</text>
+<rect x="861" y="1416" width="23" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="872" y="1429" font-size="11" fill="#141414" text-anchor="middle">E1</text>
+<rect x="794" y="1090" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="809" y="1103" font-size="11" fill="#141414" text-anchor="middle">N14</text>
+<rect x="1460" y="1111" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1475" y="1124" font-size="11" fill="#141414" text-anchor="middle">N16</text>
+<rect x="1250" y="973" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1265" y="986" font-size="11" fill="#141414" text-anchor="middle">N18</text>
+<rect x="1756" y="726" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1771" y="738" font-size="11" fill="#141414" text-anchor="middle">N24</text>
+<rect x="386" y="991" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="401" y="1004" font-size="11" fill="#141414" text-anchor="middle">N27</text>
+<rect x="617" y="815" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="632" y="828" font-size="11" fill="#141414" text-anchor="middle">N31</text>
+<rect x="1496" y="309" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1511" y="322" font-size="11" fill="#141414" text-anchor="middle">N32</text>
+<rect x="1268" y="1230" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1283" y="1242" font-size="11" fill="#141414" text-anchor="middle">N38</text>
+<rect x="846" y="1233" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="860" y="1246" font-size="11" fill="#141414" text-anchor="middle">N42</text>
+<rect x="1788" y="817" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="1803" y="830" font-size="11" fill="#141414" text-anchor="middle">N43</text>
+<rect x="1018" y="1226" width="30" height="18" fill="#ffffff" stroke="#1b7a33" stroke-width="0.8"/>
+<text x="1033" y="1239" font-size="11" fill="#1b7a33" text-anchor="middle">N97</text>
+<rect x="1062" y="1226" width="30" height="18" fill="#ffffff" stroke="#1b7a33" stroke-width="0.8"/>
+<text x="1077" y="1239" font-size="11" fill="#1b7a33" text-anchor="middle">N99</text>
+<rect x="827" y="861" width="37" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="845" y="874" font-size="11" fill="#141414" text-anchor="middle">SWa'</text>
+<rect x="2033" y="1025" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2058" y="1038" font-size="11" fill="#141414" text-anchor="middle">LI_HI1</text>
+<rect x="2023" y="1101" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2048" y="1114" font-size="11" fill="#141414" text-anchor="middle">LI_HI2</text>
+<rect x="2023" y="1177" width="50" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2048" y="1190" font-size="11" fill="#141414" text-anchor="middle">LI_HI3</text>
+<text x="785" y="1054" font-size="9.5" fill="#555555" text-anchor="end">to AMF in other PLMN</text>
+<text x="1475" y="1077" font-size="9.5" fill="#555555" text-anchor="middle">to SMF in V/H PLMN (roaming)</text>
+<text x="1273" y="1012" font-size="9.5" fill="#555555" text-anchor="start">from any NF</text>
+<text x="1864" y="699" font-size="9.5" fill="#555555" text-anchor="end">to PCF in HPLMN (roaming)</text>
+<text x="382" y="976" font-size="9.5" fill="#555555" text-anchor="start">for Roaming</text>
+<text x="624" y="822" font-size="9.5" fill="#555555" text-anchor="end">for Roaming (to NSSF in HPLMN)</text>
+<text x="1503" y="300" font-size="9.5" fill="#555555" text-anchor="middle">to SEPP in other PLMN</text>
+<text x="1301" y="1282" font-size="9.5" fill="#555555" text-anchor="start">to I-SMF / V-SMF</text>
+<text x="876" y="1266" font-size="9.5" fill="#555555" text-anchor="start">to CHF in VPLMN (roaming)</text>
+<text x="1892" y="859" font-size="9.5" fill="#555555" text-anchor="end">to PCF (other PLMN)</text>
+<text x="1015" y="1275" font-size="9.5" fill="#555555" text-anchor="end">to NSACF in other PLMN</text>
+<text x="1095" y="1275" font-size="9.5" fill="#555555" text-anchor="start">to NSACF in same PLMN</text>
+<text x="853" y="842" font-size="9.5" fill="#555555" text-anchor="start">to WLAN</text>
+<text x="1770" y="812" font-size="9.5" fill="#555555" text-anchor="start">GBA (33.220)</text>
+<text x="905" y="452" font-size="9.5" fill="#555555" text-anchor="middle">ProSe (23.304)</text>
+<text x="971" y="384" font-size="10" fill="#555555" text-anchor="middle">AIoT Device → UE / DEVICES · AIoT reader in NG-RAN</text>
+<text x="1815" y="388" font-size="10" fill="#555555" text-anchor="middle">P-CSCF = AF (N5) · SBA in IMS: N5 / N70 / N71 (23.228)</text>
+<text x="12" y="42" font-size="33" fill="#141414" text-anchor="start" font-weight="bold">3GPP 5G Standalone Architecture — New ERA Edition</text>
+<text x="12" y="70" font-size="15.5" fill="#141414" text-anchor="start">3GPP Overall Architecture and Specifications · Release-19 · 5G System (Standalone) only</text>
+<text x="12" y="92" font-size="11.5" fill="#5a5a5a" text-anchor="start">Point-to-point reference point representation per TS 23.501 V19.9.0 — no SBA bus simplification · Layout follows M. Ogawa's Rel-17 diagram · Draft v3 — category zones as outlines only, interface lines on the front layer, LI added per TS 33.127</text>
+<text x="12" y="128" font-size="12.5" fill="#141414" text-anchor="start" font-weight="bold">5GS Specifications</text>
+<text x="12" y="143" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Stage 1</text>
+<text x="12" y="158" font-size="11" fill="#141414" text-anchor="start">22.261  Service requirement</text>
+<text x="12" y="174" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Stage 2</text>
+<text x="12" y="189" font-size="11" fill="#141414" text-anchor="start">23.501  Architecture</text>
+<text x="12" y="204" font-size="11" fill="#141414" text-anchor="start">23.502  Procedures</text>
+<text x="12" y="219" font-size="11" fill="#141414" text-anchor="start">23.503  PCC Framework</text>
+<text x="12" y="234" font-size="11" fill="#141414" text-anchor="start">23.273  Location Services</text>
+<text x="12" y="250" font-size="11" fill="#141414" text-anchor="start">23.247  MBS</text>
+<text x="12" y="265" font-size="11" fill="#141414" text-anchor="start">23.288  NWDAF</text>
+<text x="12" y="280" font-size="11" fill="#141414" text-anchor="start">23.369  Ambient IoT</text>
+<text x="12" y="295" font-size="11" fill="#141414" text-anchor="start">23.228  IMS (VoNR)</text>
+<text x="12" y="310" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Stage 3</text>
+<text x="12" y="326" font-size="11" fill="#141414" text-anchor="start">29.500  SBA</text>
+<text x="12" y="341" font-size="11" fill="#141414" text-anchor="start">29.501  SBA Guidelines</text>
+<text x="12" y="356" font-size="11" fill="#141414" text-anchor="start">29.571  Data Types</text>
+<text x="12" y="371" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Security</text>
+<text x="12" y="386" font-size="11" fill="#141414" text-anchor="start">33.501  5GS Security</text>
+<text x="12" y="402" font-size="11" fill="#141414" text-anchor="start">33.535  AKMA</text>
+<text x="12" y="417" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Charging</text>
+<text x="12" y="432" font-size="11" fill="#141414" text-anchor="start">32.240  Architecture</text>
+<text x="12" y="447" font-size="11" fill="#141414" text-anchor="start">32.290  SBI Charging</text>
+<text x="12" y="462" font-size="11" fill="#141414" text-anchor="start" font-weight="bold">Network management</text>
+<text x="12" y="478" font-size="11" fill="#141414" text-anchor="start">28.530  Concepts</text>
+<text x="12" y="493" font-size="11" fill="#141414" text-anchor="start">28.531  Provisioning</text>
+<text x="12" y="508" font-size="11" fill="#141414" text-anchor="start">28.532  Architecture</text>
+<text x="12" y="523" font-size="11" fill="#141414" text-anchor="start">28.545  Fault Supervision</text>
+<text x="12" y="538" font-size="11" fill="#141414" text-anchor="start">28.550  Performance Assurance</text>
+<text x="12" y="554" font-size="11" fill="#141414" text-anchor="start">28.554  E2E KPI</text>
+<text x="12" y="588" font-size="12.5" fill="#141414" text-anchor="start" font-weight="bold">NG-RAN Specifications</text>
+<text x="12" y="603" font-size="11" fill="#141414" text-anchor="start">38.300  Overall description</text>
+<text x="12" y="618" font-size="11" fill="#141414" text-anchor="start">38.401  NG-RAN Architecture</text>
+<text x="12" y="633" font-size="11" fill="#141414" text-anchor="start">38.410  NG General</text>
+<text x="12" y="648" font-size="11" fill="#141414" text-anchor="start">38.413  NG AP</text>
+<text x="12" y="664" font-size="11" fill="#141414" text-anchor="start">38.420  Xn General</text>
+<text x="12" y="679" font-size="11" fill="#141414" text-anchor="start">38.423  Xn AP</text>
+<text x="12" y="694" font-size="11" fill="#141414" text-anchor="start">38.460  E1 General</text>
+<text x="12" y="709" font-size="11" fill="#141414" text-anchor="start">38.463  E1 AP</text>
+<text x="12" y="724" font-size="11" fill="#141414" text-anchor="start">38.470  F1 General</text>
+<text x="12" y="740" font-size="11" fill="#141414" text-anchor="start">38.473  F1 AP</text>
+<text x="12" y="755" font-size="11" fill="#141414" text-anchor="start">24.501  NAS</text>
+<text x="12" y="770" font-size="11" fill="#141414" text-anchor="start">24.526  UE Policies</text>
+<text x="12" y="810" font-size="12.5" fill="#141414" text-anchor="start" font-weight="bold">UE / NG-RAN Protocol Stack</text>
+<rect x="8" y="822" width="284" height="180" fill="none" stroke="#141414" stroke-width="1"/>
+<text x="16" y="842" font-size="11" fill="#141414" text-anchor="start">RRC (CP)</text>
+<text x="180" y="842" font-size="11" fill="#141414" text-anchor="start">38.331</text>
+<line x1="8.0" y1="852.0" x2="292.0" y2="852.0" stroke="#141414" stroke-width="0.7"/>
+<text x="16" y="872" font-size="11" fill="#141414" text-anchor="start">SDAP (UP)</text>
+<text x="180" y="872" font-size="11" fill="#141414" text-anchor="start">37.324</text>
+<line x1="8.0" y1="882.0" x2="292.0" y2="882.0" stroke="#141414" stroke-width="0.7"/>
+<text x="16" y="902" font-size="11" fill="#141414" text-anchor="start">PDCP</text>
+<text x="180" y="902" font-size="11" fill="#141414" text-anchor="start">38.323</text>
+<line x1="8.0" y1="912.0" x2="292.0" y2="912.0" stroke="#141414" stroke-width="0.7"/>
+<text x="16" y="932" font-size="11" fill="#141414" text-anchor="start">RLC</text>
+<text x="180" y="932" font-size="11" fill="#141414" text-anchor="start">38.322</text>
+<line x1="8.0" y1="942.0" x2="292.0" y2="942.0" stroke="#141414" stroke-width="0.7"/>
+<text x="16" y="962" font-size="11" fill="#141414" text-anchor="start">MAC</text>
+<text x="180" y="962" font-size="11" fill="#141414" text-anchor="start">38.321</text>
+<line x1="8.0" y1="972.0" x2="292.0" y2="972.0" stroke="#141414" stroke-width="0.7"/>
+<text x="16" y="992" font-size="11" fill="#141414" text-anchor="start">PHY</text>
+<text x="180" y="992" font-size="11" fill="#141414" text-anchor="start">38.201, 38.21x</text>
+<line x1="168.0" y1="822.0" x2="168.0" y2="1002.0" stroke="#141414" stroke-width="0.7"/>
+<text x="12" y="1044" font-size="12.5" fill="#141414" text-anchor="start" font-weight="bold">Categories</text>
+<rect x="12" y="1050" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1060" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">UE / DEVICES</text>
+<text x="38" y="1073" font-size="9.5" fill="#555555" text-anchor="start">terminals &amp; IoT devices</text>
+<rect x="12" y="1079" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1089" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">RAN</text>
+<text x="38" y="1102" font-size="9.5" fill="#555555" text-anchor="start">NG-RAN (gNB / ng-eNB)</text>
+<rect x="12" y="1108" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1118" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">CORE — 5GC</text>
+<text x="38" y="1131" font-size="9.5" fill="#555555" text-anchor="start">5G Core network functions</text>
+<rect x="12" y="1137" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1147" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">NON-3GPP ACCESS</text>
+<text x="38" y="1160" font-size="9.5" fill="#555555" text-anchor="start">WLAN / wireline gateways</text>
+<rect x="12" y="1166" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1176" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">AMBIENT IoT</text>
+<text x="38" y="1189" font-size="9.5" fill="#555555" text-anchor="start">AIoT functions (Rel-19)</text>
+<rect x="12" y="1195" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1205" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">IMS — VoNR</text>
+<text x="38" y="1218" font-size="9.5" fill="#555555" text-anchor="start">voice over NR</text>
+<rect x="12" y="1224" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1234" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">MBS</text>
+<text x="38" y="1247" font-size="9.5" fill="#555555" text-anchor="start">multicast / broadcast (in CORE)</text>
+<rect x="12" y="1253" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1263" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">LI — LAWFUL INTERCEPTION</text>
+<text x="38" y="1276" font-size="9.5" fill="#555555" text-anchor="start">ADMF · MDF2 · MDF3 (33.127)</text>
+<rect x="12" y="1282" width="18" height="11" fill="#ffffff" stroke="#7d8a96" stroke-width="0.9"/>
+<text x="38" y="1292" font-size="10.5" fill="#141414" text-anchor="start" font-weight="bold">DN / EXTERNAL</text>
+<text x="38" y="1305" font-size="9.5" fill="#555555" text-anchor="start">data network &amp; external systems</text>
+<text x="12" y="1331" font-size="9.5" fill="#555555" text-anchor="start">Category zones after Ogawa's domain labels.</text>
+<text x="2084" y="140" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">5G Identifiers</text>
+<text x="2084" y="162" font-size="10.5" fill="#141414" text-anchor="start">SUPI · SUCI · GPSI · PEI (IMEI)</text>
+<text x="2084" y="180" font-size="10.5" fill="#141414" text-anchor="start">5G-GUTI · AMF Region / Set / Pointer</text>
+<text x="2084" y="198" font-size="10.5" fill="#141414" text-anchor="start">S-NSSAI (SST, SD) · DNN · PDU Session ID</text>
+<text x="2084" y="216" font-size="10.5" fill="#141414" text-anchor="start">TAI · NCGI · NSI ID · Routing Indicator</text>
+<text x="2084" y="248" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Network Function Abbreviations</text>
+<text x="2084" y="261" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">AMF</text>
+<text x="2144" y="261" font-size="9.5" fill="#141414" text-anchor="start">Access and Mobility Management Function</text>
+<text x="2084" y="275" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">SMF</text>
+<text x="2144" y="275" font-size="9.5" fill="#141414" text-anchor="start">Session Management Function</text>
+<text x="2084" y="288" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">I-SMF</text>
+<text x="2144" y="288" font-size="9.5" fill="#141414" text-anchor="start">Intermediate SMF</text>
+<text x="2084" y="302" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">UPF</text>
+<text x="2144" y="302" font-size="9.5" fill="#141414" text-anchor="start">User Plane Function</text>
+<text x="2084" y="315" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">PCF</text>
+<text x="2144" y="315" font-size="9.5" fill="#141414" text-anchor="start">Policy Control Function</text>
+<text x="2084" y="328" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">UDM</text>
+<text x="2144" y="328" font-size="9.5" fill="#141414" text-anchor="start">Unified Data Management</text>
+<text x="2084" y="342" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">UDR</text>
+<text x="2144" y="342" font-size="9.5" fill="#141414" text-anchor="start">Unified Data Repository</text>
+<text x="2084" y="355" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">UDSF</text>
+<text x="2144" y="355" font-size="9.5" fill="#141414" text-anchor="start">Unstructured Data Storage Function</text>
+<text x="2084" y="369" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">AUSF</text>
+<text x="2144" y="369" font-size="9.5" fill="#141414" text-anchor="start">Authentication Server Function</text>
+<text x="2084" y="382" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NRF</text>
+<text x="2144" y="382" font-size="9.5" fill="#141414" text-anchor="start">NF Repository Function</text>
+<text x="2084" y="395" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">SCP</text>
+<text x="2144" y="395" font-size="9.5" fill="#141414" text-anchor="start">Service Communication Proxy</text>
+<text x="2084" y="409" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NEF</text>
+<text x="2144" y="409" font-size="9.5" fill="#141414" text-anchor="start">Network Exposure Function</text>
+<text x="2084" y="422" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NSSF</text>
+<text x="2144" y="422" font-size="9.5" fill="#141414" text-anchor="start">Network Slice Selection Function</text>
+<text x="2084" y="436" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NSSAAF</text>
+<text x="2144" y="436" font-size="9.5" fill="#141414" text-anchor="start">Network Slice-Specific Authentication and</text>
+<text x="2144" y="449" font-size="9.5" fill="#141414" text-anchor="start">Authorization Function</text>
+<text x="2084" y="462" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">5G-EIR</text>
+<text x="2144" y="462" font-size="9.5" fill="#141414" text-anchor="start">5G Equipment Identity Register</text>
+<text x="2084" y="476" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">SMSF</text>
+<text x="2144" y="476" font-size="9.5" fill="#141414" text-anchor="start">Short Message Service Function</text>
+<text x="2084" y="489" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LMF</text>
+<text x="2144" y="489" font-size="9.5" fill="#141414" text-anchor="start">Location Management Function</text>
+<text x="2084" y="503" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">GMLC</text>
+<text x="2144" y="503" font-size="9.5" fill="#141414" text-anchor="start">Gateway Mobile Location Centre</text>
+<text x="2084" y="516" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">CBCF</text>
+<text x="2144" y="516" font-size="9.5" fill="#141414" text-anchor="start">Cell Broadcast Centre Function</text>
+<text x="2084" y="529" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">SEPP</text>
+<text x="2144" y="529" font-size="9.5" fill="#141414" text-anchor="start">Security Edge Protection Proxy</text>
+<text x="2084" y="543" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">CHF</text>
+<text x="2144" y="543" font-size="9.5" fill="#141414" text-anchor="start">Charging Function</text>
+<text x="2084" y="556" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">BSF</text>
+<text x="2144" y="556" font-size="9.5" fill="#141414" text-anchor="start">Bootstrapping Server Function (GBA)</text>
+<text x="2084" y="570" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">AANF</text>
+<text x="2144" y="570" font-size="9.5" fill="#141414" text-anchor="start">AKMA Anchor Function</text>
+<text x="2084" y="583" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NSWOF</text>
+<text x="2144" y="583" font-size="9.5" fill="#141414" text-anchor="start">Non-Seamless WLAN Offload Function</text>
+<text x="2084" y="596" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">UCMF</text>
+<text x="2144" y="596" font-size="9.5" fill="#141414" text-anchor="start">UE radio Capability Management Function</text>
+<text x="2084" y="610" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NWDAF</text>
+<text x="2144" y="610" font-size="9.5" fill="#141414" text-anchor="start">Network Data Analytics Function</text>
+<text x="2084" y="623" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">DCCF</text>
+<text x="2144" y="623" font-size="9.5" fill="#141414" text-anchor="start">Data Collection Coordination Function</text>
+<text x="2084" y="637" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MFAF</text>
+<text x="2144" y="637" font-size="9.5" fill="#141414" text-anchor="start">Messaging Framework Adaptor Function</text>
+<text x="2084" y="650" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">ADRF</text>
+<text x="2144" y="650" font-size="9.5" fill="#141414" text-anchor="start">Analytics Data Repository Function</text>
+<text x="2084" y="663" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">NSACF</text>
+<text x="2144" y="663" font-size="9.5" fill="#141414" text-anchor="start">Network Slice Admission Control Function</text>
+<text x="2084" y="677" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TSCTSF</text>
+<text x="2144" y="677" font-size="9.5" fill="#141414" text-anchor="start">Time Sensitive Communication and Time Synchr…</text>
+<text x="2084" y="690" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">EASDF</text>
+<text x="2144" y="690" font-size="9.5" fill="#141414" text-anchor="start">Edge Application Server Discovery Function</text>
+<text x="2084" y="704" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">5G DDNMF</text>
+<text x="2144" y="704" font-size="9.5" fill="#141414" text-anchor="start">5G Direct Discovery Name Management Function</text>
+<text x="2084" y="717" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MB-SMF</text>
+<text x="2144" y="717" font-size="9.5" fill="#141414" text-anchor="start">Multicast/Broadcast SMF</text>
+<text x="2084" y="730" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MB-UPF</text>
+<text x="2144" y="730" font-size="9.5" fill="#141414" text-anchor="start">Multicast/Broadcast UPF</text>
+<text x="2084" y="744" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MBSF</text>
+<text x="2144" y="744" font-size="9.5" fill="#141414" text-anchor="start">MBS Session Handling Function</text>
+<text x="2084" y="757" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MBSTF</text>
+<text x="2144" y="757" font-size="9.5" fill="#141414" text-anchor="start">MBS Transport Function</text>
+<text x="2084" y="771" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">EIF</text>
+<text x="2144" y="771" font-size="9.5" fill="#141414" text-anchor="start">Energy Information Function</text>
+<text x="2084" y="784" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">AIOTF</text>
+<text x="2144" y="784" font-size="9.5" fill="#141414" text-anchor="start">Ambient IoT Function</text>
+<text x="2084" y="797" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">ADM</text>
+<text x="2144" y="797" font-size="9.5" fill="#141414" text-anchor="start">AIoT Data Management</text>
+<text x="2084" y="811" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">ADMF</text>
+<text x="2144" y="811" font-size="9.5" fill="#141414" text-anchor="start">Administration Function (LI)</text>
+<text x="2084" y="824" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LICF</text>
+<text x="2144" y="824" font-size="9.5" fill="#141414" text-anchor="start">Lawful Interception Control Function</text>
+<text x="2084" y="838" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LIPF</text>
+<text x="2144" y="838" font-size="9.5" fill="#141414" text-anchor="start">Lawful Interception Provisioning Function</text>
+<text x="2084" y="851" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MDF2</text>
+<text x="2144" y="851" font-size="9.5" fill="#141414" text-anchor="start">Mediation and Delivery Function 2 (IRI)</text>
+<text x="2084" y="864" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">MDF3</text>
+<text x="2144" y="864" font-size="9.5" fill="#141414" text-anchor="start">Mediation and Delivery Function 3 (CC)</text>
+<text x="2084" y="878" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">LEMF</text>
+<text x="2144" y="878" font-size="9.5" fill="#141414" text-anchor="start">Law Enforcement Monitoring Facility</text>
+<text x="2084" y="891" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">N3IWF</text>
+<text x="2144" y="891" font-size="9.5" fill="#141414" text-anchor="start">Non-3GPP InterWorking Function</text>
+<text x="2084" y="905" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TNGF</text>
+<text x="2144" y="905" font-size="9.5" fill="#141414" text-anchor="start">Trusted Non-3GPP Gateway Function</text>
+<text x="2084" y="918" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">TWIF</text>
+<text x="2144" y="918" font-size="9.5" fill="#141414" text-anchor="start">Trusted WLAN Interworking Function</text>
+<text x="2084" y="931" font-size="10" fill="#141414" text-anchor="start" font-weight="bold">W-AGF</text>
+<text x="2144" y="931" font-size="9.5" fill="#141414" text-anchor="start">Wireline Access Gateway Function</text>
+<text x="2084" y="961" font-size="13" fill="#1b7a33" text-anchor="start" font-weight="bold">Release-18 Enhancements</text>
+<text x="2084" y="976" font-size="10.5" fill="#1b7a33" text-anchor="start">Nupf — UPF service-based interface</text>
+<text x="2084" y="991" font-size="10.5" fill="#1b7a33" text-anchor="start">N89 / N96 — TSCTSF interconnection</text>
+<text x="2084" y="1006" font-size="10.5" fill="#1b7a33" text-anchor="start">N97 / N99 — NSACF interconnection</text>
+<text x="2084" y="1021" font-size="10.5" fill="#1b7a33" text-anchor="start">NCR — Network-Controlled Repeater (38.300)</text>
+<text x="2084" y="1036" font-size="10.5" fill="#1b7a33" text-anchor="start">MBSR — Mobile Base Station Relay</text>
+<text x="2084" y="1051" font-size="10.5" fill="#1b7a33" text-anchor="start">TSC + DetNet · RedCap → eRedCap</text>
+<text x="2084" y="1081" font-size="13" fill="#0d47a1" text-anchor="start" font-weight="bold">Release-19 — New ERA</text>
+<text x="2084" y="1096" font-size="10.5" fill="#0d47a1" text-anchor="start">EIF — Energy Information Function (29.566)</text>
+<text x="2084" y="1111" font-size="10.5" fill="#0d47a1" text-anchor="start">Ambient IoT — AIOTF / ADM (23.369)</text>
+<text x="2084" y="1126" font-size="10.5" fill="#0d47a1" text-anchor="start">Nscp — SCP service-based interface</text>
+<text x="2084" y="1141" font-size="10.5" fill="#0d47a1" text-anchor="start">NR Femto (38.300 §4.10) · MWAB</text>
+<text x="2084" y="1156" font-size="10.5" fill="#0d47a1" text-anchor="start">Energy Efficiency architecture (23.501 §4.2.18)</text>
+<text x="2084" y="1186" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Inter-PLMN Security</text>
+<rect x="2088" y="1198" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
+<text x="2140" y="1221" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">vSEPP</text>
+<rect x="2268" y="1198" width="104" height="36" fill="#ffffff" stroke="#141414" stroke-width="1.1"/>
+<text x="2320" y="1221" font-size="11" fill="#141414" text-anchor="middle" font-weight="bold">hSEPP</text>
+<line x1="2192.0" y1="1216.4" x2="2268.0" y2="1216.4" stroke="#141414" stroke-width="1.1"/>
+<rect x="2215" y="1207" width="30" height="18" fill="#ffffff" stroke="#8a8a8a" stroke-width="0.8"/>
+<text x="2230" y="1220" font-size="11" fill="#141414" text-anchor="middle">N32</text>
+<text x="2230" y="1260" font-size="9.5" fill="#555555" text-anchor="middle">29.573 · Telescopic FQDN · PRINS</text>
+<text x="2084" y="1290" font-size="13" fill="#141414" text-anchor="start" font-weight="bold">Legend</text>
+<line x1="2086.0" y1="1307.4" x2="2128.0" y2="1307.4" stroke="#141414" stroke-width="1.6"/>
+<text x="2138" y="1311" font-size="10.5" fill="#141414" text-anchor="start">up to Release-17</text>
+<line x1="2086.0" y1="1328.4" x2="2128.0" y2="1328.4" stroke="#1b7a33" stroke-width="1.6"/>
+<text x="2138" y="1332" font-size="10.5" fill="#141414" text-anchor="start">Release-18</text>
+<line x1="2086.0" y1="1349.4" x2="2128.0" y2="1349.4" stroke="#0d47a1" stroke-width="1.6"/>
+<text x="2138" y="1353" font-size="10.5" fill="#141414" text-anchor="start">Release-19</text>
+<line x1="2086.0" y1="1370.4" x2="2128.0" y2="1370.4" stroke="#141414" stroke-width="3.2"/>
+<text x="2138" y="1374" font-size="10.5" fill="#141414" text-anchor="start">user plane (N3 / N9 / N6)</text>
+<line x1="2086.0" y1="1391.4" x2="2128.0" y2="1391.4" stroke="#141414" stroke-width="1.1" stroke-dasharray="6,4"/>
+<text x="2138" y="1395" font-size="10.5" fill="#141414" text-anchor="start">logical / roaming / inter-PLMN</text>
+<text x="2084" y="1429" font-size="9.5" fill="#555555" text-anchor="start">Draft v3 — prepared for review. Not for publication.</text>
+<text x="785" y="1582" font-size="10.5" fill="#555555" text-anchor="middle">38.300 Overall · 38.401 Architecture</text>
+<text x="1190" y="1652" font-size="11" fill="#555555" text-anchor="middle">Series: 3GPP Overall Architecture Poster · New ERA Edition (Release-19) · Diagram layout after M. Ogawa, “3GPP Overall Architecture and Specifications” (2021)</text>
+<rect x="2" y="2" width="2376" height="1676" fill="none" stroke="#141414" stroke-width="2"/>
+</svg>
