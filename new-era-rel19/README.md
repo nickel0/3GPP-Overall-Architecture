@@ -78,3 +78,15 @@ Prepared by RE-X K.K. (Powered by RE-X) — poster project for Ogawa's diagram.
 two-level category zones inside CORE — 5GC, poster title/credit
 bands, and a short "New ERA — The Standalone Era" note.
 See `new-era-drawio-notes.md` for details.)
+
+**更新（v7）/ Update (v7)**：正本を v7 に更新しました。変更はゾーン
+見出しタブの幅計算の修正のみです。実フォントの文字幅から幅を求める
+ようにし、はみ出していた4つのタブ（SBA COMMON／PUBLIC WARNING／
+CORE — CONTROL／NON-3GPP ACCESS）を解消しました。ノードの配置・
+配線・本文は v6 から不変です。詳細は `new-era-drawio-notes.md` を
+参照してください。
+(The master is now v7. The only change is the zone-tab chip width
+calculation, now based on real glyph widths; the four overflowing
+tabs (SBA COMMON / PUBLIC WARNING / CORE — CONTROL /
+NON-3GPP ACCESS) are fixed. Layout, routing and content are
+unchanged from v6. See `new-era-drawio-notes.md` for details.)

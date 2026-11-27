@@ -1,118 +1,124 @@
-# New ERA diagram — draw.io v6 notes
+# New ERA diagram — draw.io v7 notes
 
-Generated 2026-11-25 by `gen-drawio-v6.py` (derived from `gen-drawio-v5.py`).
-Master file: `new-era-diagram-drawio-v6.drawio` (660 cells, 741,255 bytes).
-Exports: `new-era-diagram-drawio-v6.pdf` (409,952 bytes) /
-`new-era-diagram-drawio-v6.svg` (6,978,887 bytes), produced on the WSL with
-draw.io desktop v32.7.4 CLI under
-`dbus-run-session -- xvfb-run -a /opt/drawio/drawio --export …`.
-Preview: `../preview/new-era-drawio-v6.jpg` (110 dpi render of the PDF).
+Generated 2026-11-26 by `gen-drawio-v7.py` (derived from `gen-drawio-v6.py`).
+Master file: `new-era-diagram-drawio-v7.drawio` (660 cells, 741,274 bytes).
+Exports: `new-era-diagram-drawio-v7.pdf` (409,973 bytes) /
+`new-era-diagram-drawio-v7.svg` (6,977,100 bytes), produced with the
+draw.io desktop CLI (AppImage in `~/.cache/drawio-cli/`, run as
+`dbus-run-session -- xvfb-run -a …/AppRun --no-sandbox -x -f pdf|svg`,
+the route recorded in the v1 notes; the `/opt/drawio` .deb path used in
+the v5/v6 notes does not exist on this VM).
+Previews: `../preview/new-era-drawio-v7.jpg` (110 dpi render of the PDF)
+and `../preview/new-era-v7-print.jpg` (110 dpi render of the print PDF).
 
-v6 = v5 (zones, routing, node layout, styling, poster bands — all
-unchanged) plus the "SA Only" wording, per the user decision of
-2026-11-25 19:21 (New ERA = the standalone era, phrased "SA Only"):
+v7 = v6 (zones, routing, node layout, styling, poster bands — all
+unchanged) plus one defect fix and the Draft labels:
 
-1. **Badge**: "New ERA · Release-19" → **"New ERA · SA Only · Release-19"**.
-2. **Meaning note** on the poster (short version from
-   `../explainer/new-era-meaning.md`).
-3. "Draft v5" → "Draft v6" labels (title block, right panel).
+1. **Zone tab chip widths** (below).
+2. "Draft v6" → "Draft v7" labels (title block, right panel).
 
-## 1. Badge (final form)
+## 1. The defect and the fix
 
-- Text: **New ERA · SA Only · Release-19** (white bold, black chip).
-- Chip geometry changed: (1061, 9, 118×26) → **(1055, 9, 124×26)**;
-  font 22pt → **17pt**, so the 30-char text stays on one line.
-  Calibration: the v5 badge text measured 95.4mm wide at 22pt in the
-  exported PDF (PyMuPDF span bbox), i.e. 30 chars would need ~143mm at
-  22pt but only ~110mm at 17pt. In the v6 export the text spans
-  x = 1063.0–1169.7mm inside the 1055–1179mm chip (≈8mm margins).
-- The 3GPP logo (968, 5, 79.1×46mm) is untouched — same size and place
-  as v5 (user direction: logo stays large).
+Known item since v5: the SBA COMMON tab's last letter ("N") overflowed
+its 30.0mm chip and rendered invisible (white on white). Root cause:
+the chip-width formula inherited from gen-v5r3,
 
-## 2. Meaning note (final form and placement)
+    w = FS(pt) * 0.62 * len(label) + pad      (pad 9mm outer / 7mm sub)
 
-Final text (verbatim from `new-era-meaning.md`, short version (a)):
+assumes a flat 0.62 em per character. Measured against the real font
+(DejaVu Sans Bold, system TTF), the tab labels actually average
+0.61–0.83 em/char depending on the letter mix, so wide-letter labels
+overflow once the 3mm `spacingLeft` is also paid out of the chip:
 
-> **New ERA — The Standalone Era**
-> 5G built on the 5G Core and NR alone, with no legacy anchor.
-> A standalone-only view of the 5G-Advanced era (Release 18 onwards), drawn from Release 19.
+| label | text width | old chip | slack after 3mm left spacing |
+|---|---|---|---|
+| SBA COMMON (10.5pt) | 29.14mm | 29.97mm | **−2.17mm** |
+| PUBLIC WARNING (10.5pt) | 36.72mm | 39.15mm | −0.56mm |
+| CORE — CONTROL (10.5pt) | 37.39mm | 39.15mm | −1.24mm |
+| NON-3GPP ACCESS (13pt) | 48.77mm | 51.65mm | −0.12mm |
 
-- **Language decision: English.** The poster body is entirely English
-  (title, panels, notes, credit band), so the note follows the poster;
-  the Japanese version of the same text lives in
-  `../explainer/new-era-meaning.md` and, in its long form, now also in
-  `../explainer/3gpp-explainer-v0.md` (see §4 below).
-- **Placement: the open centre of the credit band**, centred at x=475 —
-  between the © block (texts end ≈x=230) and the QR code (x=650.5).
-  This is the one area that competes with nothing: the title band's
-  underside has only ~8mm before the zone tabs start (y≈57.7), and the
-  strip above the left panel is too narrow for 3 lines. Baselines align
-  with the credit block's rhythm: heading (12pt bold) at 813, body lines
-  (9.5pt grey) at 823.5 / 832.5 — the same baselines as the © line and
-  the two credit lines. Measured in the export: heading spans
-  x = 437.3–512.3, body lines 423.2–526.4 and 395.1–554.5 (all mm,
-  nominal page coordinates); the "38.300 Overall · 38.401 Architecture"
-  caption (baseline 806, centred x=384) stays clear above the heading.
+In the v6 CLI export the SBA COMMON text span ends 2.44mm *beyond* the
+chip's right edge (measured with PyMuPDF, export-scale mm); a 300 dpi
+crop shows the tab reading "SBA COMMOM" with the N outside the grey.
 
-## 3. Text diff (verify-drawio-v6.py) — fully accounted
+**Fix (in `gen-drawio-v7.py`)**: chip width is now computed from the
+real glyph advances. `TAB_ADV` embeds the DejaVu Sans Bold advance
+widths (em) measured from
+`/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf`, and
 
-Totals: v6 = 572 texts; v5 = 569; v1 baseline = 518.
-v6 − v5 = **+6 / −3**, exactly the intended delta:
+    tab_width_mm(label, pt) = 3.0 + FS(pt) * sum(advances) * 1.02 + 2.5
 
-- +1 badge "New ERA · SA Only · Release-19" (−1 old badge),
-- +3 meaning note (heading + 2 body lines),
-- +2 "Draft v6" strings (title third line, right-panel note;
-  −2 "Draft v5" strings).
+i.e. the 3mm left spacing + the true text width (×1.02 safety) +
+2.5mm right padding. Applied in all three tab makers (`zone_tab` 13pt,
+`zone_tab_sub` 10.5pt, `zone_tab_above` 10.5pt). Resulting chip widths
+for the labels that were short: SBA COMMON 29.97 → 35.20mm,
+PUBLIC WARNING 39.15 → 42.94mm, CORE — CONTROL 39.15 → 43.63mm,
+NON-3GPP ACCESS 51.65 → 55.25mm. Narrow-letter labels (e.g. SLICE)
+come out slightly narrower than before; no frame geometry changed.
 
-No NF name, reference-point label, zone tab or note from v5 is missing;
-v6 − v1 shows only the accumulated v4/v5/v6 deltas.
+## 2. Verification (verify-drawio-v7.py) — ALL PASSED
 
-## 4. Explainer updated
-
-`../explainer/3gpp-explainer-v0.md`, section 5: a new subsection
-「「New ERA」という名前について」 was added right after the New ERA
-Edition paragraph, carrying the long (paragraph) version of the meaning
-text from `new-era-meaning.md` §3(b), verbatim (4 paragraphs: the name
-is RE-X's, not a 3GPP term — the official name is 5G-Advanced; SA /
-Option 2 vs NSA / EN-DC; what disappears from the diagram; the caveat
-that real networks keep EPC interworking during migration).
-
-## 5. Verification (verify-drawio-v6.py, on the .drawio) — ALL PASSED
-
+- Routing: nodes 69, edges 125, stubs 16. Penetrations 0, endpoint
+  incursions 0; the 3 NG-RAN container-internal crossings are by
+  design, as in v2–v6. "Non-orthogonal segments: 201" is the known
+  0.1px rounding artifact.
+- Text diff: v7 − v6 = exactly the two "Draft v7" strings (and v6 − v7
+  the two "Draft v6" strings). No NF name, reference-point label, zone
+  tab or note differs.
 - Zone audit: frames extracted from the .drawio equal the canonical
-  gen-v5r3 rects (outer 12/12, sub 31/31); all 69 NF boxes inside their
-  assigned outer frame, the 43 CORE boxes inside exactly one assigned
-  subcategory frame, 26 non-CORE boxes inside none; PARTIAL 0;
-  sub frames nested 31/31; frame edge × box crossings 0; tab × box
-  overlaps 0. Membership counts identical to v5.
-- Routing: nodes 69, edges 125, stubs 16. Penetrations 0 (edges,
-  stubs), endpoint incursions 0. The 3 NG-RAN container-internal
-  crossings (F1-C / F1-U / E1) are by design, as in v2–v5.
-  "Non-orthogonal segments: 201" is the known 0.1px rounding artifact,
-  same as v4/v5.
-- Poster band audit: 4 embedded image cells (3GPP logo ×2, QR, RE-X
-  logo); badge, © line, credit lines, QR URL, "Powered by" and the
-  three meaning-note texts all present.
+  gen-v5r3 rects (outer 12/12, sub 31/31); all 69 NF boxes in their
+  assigned frames, PARTIAL 0; sub frames nested 31/31; frame edge ×
+  box crossings 0; **tab × box overlaps 0** (the wider chips hit
+  nothing).
+- Poster band audit: 4 embedded image cells; badge, © line, credit
+  lines, QR URL, "Powered by" and the three meaning-note texts all
+  present.
+- **Tab fit audit (new in v7)**: all 43 tab chips re-measured against
+  the glyph-advance requirement (3mm left + text × 1.02 + ≥2.0mm
+  right). Tightest slack +0.49mm — ALL PASSED.
+- Export check (PyMuPDF, on `new-era-diagram-drawio-v7.pdf`): the
+  SBA COMMON span sits fully inside its chip — left margin 3.25mm,
+  **right margin +2.59mm** (v6: −2.44mm), export-scale mm. A 300 dpi
+  crop of the tab area was eyeballed against the v6 crop: "SBA COMMON"
+  now reads complete inside the grey chip.
 
-## 6. Known items (carried over from v5, unchanged)
+## 3. Print PDFs (make_print_pdfs_v7.py — same construction as v6)
 
-- SBA COMMON tab: last letter overflows its chip (gen-v5r3 chip-width
-  formula); canonical geometry kept.
-- CLI export scale quirk: the exported PDF page is 1141.6×807.6mm
-  (0.960× A0); print-scale handling still to be settled before
-  production.
-- The gen-v5r3 SVG still hides the SBA COMMON frame behind the SCP
-  deployment frame (draw order); the draw.io line has it fixed since
-  v5. Fix at the source if the SVG line is kept.
+Source = the CLI export (1141.56×807.55mm), embedded as a Form XObject
+and scaled ×1.041421, so everything stays vector:
 
-## 7. Files
+- `new-era-diagram-v7-print-a0.pdf` — page **1189.000×841.000mm**
+  exactly (measured), design placed 1188.845×841.000mm at offset
+  (0.078, 0)mm.
+- `new-era-diagram-v7-print-gelato.pdf` — page **1197×849mm**,
+  TrimBox = central 1189×841mm (offset 4mm), BleedBox = full page.
 
-- `gen-drawio-v6.py` — generator (badge + meaning note + Draft labels
-  are the only deltas vs v5)
-- `verify-drawio-v6.py` — routing checks + two-level zone audit +
-  band audit (incl. meaning-note presence)
-- `new-era-diagram-drawio-v6.drawio` — master, 660 cells
-- `new-era-diagram-drawio-v6.pdf` / `.svg` — CLI exports
-- `../preview/new-era-drawio-v6.jpg` — full preview (110 dpi)
-- `../explainer/3gpp-explainer-v0.md` — §5 gained the
-  「New ERA」という名前について subsection
+`final/new-era-a0/` now holds the v7 set (drawio / print-a0 /
+print-gelato / print preview); `MATERIALS-INDEX.md` and
+`final/README.md` were updated. The v6 files remain in this folder,
+untouched.
+
+## 4. Known items (carried over)
+
+- CLI export scale quirk (unchanged): the exported PDF page is
+  1141.56×807.55mm (0.960× A0); print files compensate as above.
+- The SBA COMMON chip still covers the tail of the pre-existing
+  "for Roaming" stub note — the overlap exists in the canonical
+  geometry since v5; the chip is 5.2mm wider now, so it covers
+  slightly more of the note's tail. No box or label is affected.
+- The gen-v5r3 SVG line still has both the SCP draw-order occlusion
+  and the same chip-width flaw. Not fixed: that line is reference
+  material only; fix at gen-v5r3 if it is ever promoted back to a
+  master.
+
+## 5. Files
+
+- `gen-drawio-v7.py` — generator (tab-width fix + Draft labels are the
+  only deltas vs v6)
+- `verify-drawio-v7.py` — routing checks + two-level zone audit +
+  band audit + tab fit audit
+- `new-era-diagram-drawio-v7.drawio` — master, 660 cells
+- `new-era-diagram-drawio-v7.pdf` / `.svg` — CLI exports
+- `make_print_pdfs_v7.py` — print-PDF builder (v6 script, re-pointed)
+- `new-era-diagram-v7-print-a0.pdf` / `new-era-diagram-v7-print-gelato.pdf`
+- `../preview/new-era-drawio-v7.jpg`, `../preview/new-era-v7-print.jpg`
